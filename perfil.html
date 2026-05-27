@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Meu Perfil - VeggieFresh</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; }
+        .text-brand { color: #2e6f40; }
+        .bg-brand { background-color: #2e6f40; }
+        /* Esconder a barra de scroll nas tabs para mobile */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
+            <span class="font-bold text-2xl tracking-tight">
+                <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
+            </span>
+        </a>
+        
+        <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
+            <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
+            <a href="index.html#how-it-works" class="hover:text-green-700 transition">How It Works</a>
+            <a href="index.html#about" class="hover:text-green-700 transition">About</a>
+        </nav>
+        
+        <div class="flex items-center gap-3">
+            <a href="descobrir.html" class="bg-[#2e6f40] text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Find Near Me
+            </a>
+            
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Admin</button>
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</button>
+            
+            <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
+            </div>
+
+            <a href="perfil.html" class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
+                <div id="user-initial" class="w-10 h-10 bg-[#2e6f40] text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-8">
+        
+        <div class="relative">
+            <div class="h-40 bg-gradient-to-r from-[#448757] to-[#6da57b] rounded-t-3xl w-full"></div>
+            
+            <div class="bg-white px-8 pb-6 rounded-b-3xl shadow-sm border border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-end">
+                <div class="flex items-end gap-5 -mt-12 relative z-10">
+                    <div id="profile-avatar-large" class="w-28 h-28 bg-[#2e6f40] text-white rounded-2xl flex items-center justify-center text-5xl font-bold border-4 border-white shadow-sm">
+                        L
+                    </div>
+                    <div class="mb-2">
+                        <h1 id="display-name" class="text-3xl font-bold text-gray-900">Lorem Ipsum</h1>
+                        <p class="text-sm text-gray-500 mt-1 flex items-center gap-1">
+                            📍 <span id="display-location">Lisboa</span> · Membro desde Janeiro 2026
+                        </p>
+                    </div>
+                </div>
+                
+                <button id="btn-open-edit" class="mt-6 md:mt-0 px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 flex items-center gap-2 shadow-sm transition">
+                    ✏️ Editar Perfil
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div class="bg-white rounded-2xl p-5 text-center border border-gray-100 shadow-sm flex flex-col items-center justify-center">
+                <span class="text-green-600 mb-1">💬</span>
+                <span class="font-bold text-xl text-gray-900">4</span>
+                <span class="text-xs text-gray-500">Conversas</span>
+            </div>
+            <div class="bg-white rounded-2xl p-5 text-center border border-gray-100 shadow-sm flex flex-col items-center justify-center">
+                <span class="text-green-600 mb-1">♡</span>
+                <span class="font-bold text-xl text-gray-900">3</span>
+                <span class="text-xs text-gray-500">Quintas Guardadas</span>
+            </div>
+            <div class="bg-white rounded-2xl p-5 text-center border border-gray-100 shadow-sm flex flex-col items-center justify-center">
+                <span class="text-green-600 mb-1">🍃</span>
+                <span class="font-bold text-xl text-gray-900">3</span>
+                <span class="text-xs text-gray-500">Preferências</span>
+            </div>
+        </div>
+
+        <div class="flex overflow-x-auto no-scrollbar bg-gray-100 p-1.5 rounded-full w-full mt-8 mb-8">
+            <button class="flex-1 min-w-[120px] px-4 py-2.5 text-sm font-bold bg-white text-gray-900 rounded-full shadow-sm flex items-center justify-center gap-2">
+                👤 Overview
+            </button>
+            <button class="flex-1 min-w-[120px] px-4 py-2.5 text-sm font-medium text-gray-500 hover:text-gray-900 rounded-full flex items-center justify-center gap-2 transition">
+                💬 Chats <span class="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+            </button>
+            <button class="flex-1 min-w-[120px] px-4 py-2.5 text-sm font-medium text-gray-500 hover:text-gray-900 rounded-full flex items-center justify-center gap-2 transition">
+                ♡ Saved Farms <span class="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+            </button>
+            <button class="flex-1 min-w-[120px] px-4 py-2.5 text-sm font-medium text-gray-500 hover:text-gray-900 rounded-full flex items-center justify-center gap-2 transition">
+                ⚙️ Preferences
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
+                <h2 class="text-lg font-bold text-gray-900 mb-6">Informação Pessoal</h2>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">👤</div>
+                        <div>
+                            <p class="text-xs text-gray-500">Nome</p>
+                            <p id="info-name" class="font-medium text-gray-900">Lorem Ipsum</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">✉️</div>
+                        <div>
+                            <p class="text-xs text-gray-500">Email</p>
+                            <p id="info-email" class="font-medium text-gray-900">lorem.ipsum@email.pt</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">📞</div>
+                        <div>
+                            <p class="text-xs text-gray-500">Telefone</p>
+                            <p id="info-phone" class="font-medium text-gray-900">(+351) 912 345 678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">📍</div>
+                        <div>
+                            <p class="text-xs text-gray-500">Cidade</p>
+                            <p id="info-location" class="font-medium text-gray-900">Lisboa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <p class="text-xs text-gray-500 mb-1">Bio</p>
+                    <p id="info-bio" class="text-sm text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-bold text-gray-900">Conversas Recentes</h2>
+                    <a href="#" class="text-sm font-medium text-green-600 hover:underline">Ver todas</a>
+                </div>
+                
+                <div class="space-y-5">
+                    <div class="flex items-center gap-4 cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1595856342890-e575775c7424?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#2e6f40] transition">Quinta do Vale Verde</h3>
+                                <span class="text-xs text-gray-400">Hoje, 10:32</span>
+                            </div>
+                            <p class="text-xs text-gray-500 line-clamp-1">Excepteur sint occaecat cupidatat non proident, sunt in</p>
+                        </div>
+                        <span class="w-5 h-5 bg-[#2e6f40] text-white text-[10px] font-bold flex items-center justify-center rounded-full">2</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1587049352847-81a56d773c1c?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#2e6f40] transition">Solar das Abelhas</h3>
+                                <span class="text-xs text-gray-400">Ontem, 15:44</span>
+                            </div>
+                            <p class="text-xs text-gray-500 line-clamp-1">Nam libero tempore cum soluta nobis eligendi optio cumque</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 cursor-pointer group">
+                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full object-cover border border-gray-200">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#2e6f40] transition">Pomar do Douro</h3>
+                                <span class="text-xs text-gray-400">10 Mar</span>
+                            </div>
+                            <p class="text-xs text-gray-500 line-clamp-1">Neque porro quisquam est qui dolorem ipsum quia dolor sit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-bold text-gray-900">Quintas Guardadas</h2>
+                    <a href="#" class="text-sm font-medium text-green-600 hover:underline">Ver todas</a>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl cursor-pointer transition border border-transparent hover:border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1595856342890-e575775c7424?w=100&h=100&fit=crop" class="w-12 h-12 rounded-xl object-cover border border-gray-200">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-sm text-gray-900">Quinta do Vale Verde</h3>
+                            <p class="text-xs text-gray-500 mt-0.5"><span class="text-yellow-500 font-bold">⭐ 4.8</span> · Sintra</p>
+                        </div>
+                        <span class="text-gray-300">›</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl cursor-pointer transition border border-transparent hover:border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1587049352847-81a56d773c1c?w=100&h=100&fit=crop" class="w-12 h-12 rounded-xl object-cover border border-gray-200">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-sm text-gray-900">Solar das Abelhas</h3>
+                            <p class="text-xs text-gray-500 mt-0.5"><span class="text-yellow-500 font-bold">⭐ 4.9</span> · Óbidos</p>
+                        </div>
+                        <span class="text-gray-300">›</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl cursor-pointer transition border border-transparent hover:border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=100&h=100&fit=crop" class="w-12 h-12 rounded-xl object-cover border border-gray-200">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-sm text-gray-900">Pomar do Douro</h3>
+                            <p class="text-xs text-gray-500 mt-0.5"><span class="text-yellow-500 font-bold">⭐ 4.8</span> · Porto</p>
+                        </div>
+                        <span class="text-gray-300">›</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-bold text-gray-900">As Minhas Preferências</h2>
+                    <a href="#" class="text-sm font-medium text-green-600 hover:underline">Editar</a>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs text-gray-500 mb-3">Categorias favoritas</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">🥦 Vegetables</span>
+                        <span class="bg-yellow-50 text-yellow-700 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">🍯 Honey</span>
+                        <span class="bg-red-50 text-red-700 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">🍎 Fruits</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-xs text-gray-500 mb-3">Distância máxima</p>
+                    <div class="relative w-full h-6 bg-gray-100 rounded-full flex items-center px-1">
+                        <div class="h-4 bg-white rounded-full shadow-sm px-3 flex items-center text-xs font-bold text-gray-700" style="width: 40%;">📍 20 km</div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xs text-gray-500 mb-3">Dieta / certificações</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-orange-50 text-orange-700 border border-orange-100 text-xs font-medium px-3 py-1 rounded-full">Organic</span>
+                        <span class="bg-orange-50 text-orange-700 border border-orange-100 text-xs font-medium px-3 py-1 rounded-full">Non-GMO</span>
+                        <span class="bg-orange-50 text-orange-700 border border-orange-100 text-xs font-medium px-3 py-1 rounded-full">Vegan</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="edit-modal" class="fixed inset-0 bg-black/50 z-[60] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+            <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                <h2 class="text-xl font-bold text-gray-900">Editar Perfil</h2>
+                <button id="close-modal-btn" class="text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto">
+                <form id="profile-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                            <input type="text" id="input-name" required class="w-full border border-gray-300 rounded-xl p-2.5 text-sm focus:border-[#2e6f40] outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="input-email" required class="w-full border border-gray-300 rounded-xl p-2.5 text-sm focus:border-[#2e6f40] outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Telemóvel</label>
+                            <input type="tel" id="input-phone" class="w-full border border-gray-300 rounded-xl p-2.5 text-sm focus:border-[#2e6f40] outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Cidade</label>
+                            <input type="text" id="input-location" class="w-full border border-gray-300 rounded-xl p-2.5 text-sm focus:border-[#2e6f40] outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Bio / Descrição</label>
+                        <textarea id="input-bio" class="w-full border border-gray-300 rounded-xl p-2.5 text-sm focus:border-[#2e6f40] outline-none h-24 resize-none"></textarea>
+                    </div>
+                    
+                    <div class="flex justify-end gap-3 mt-6 pt-6 border-t border-gray-100">
+                        <button type="button" id="cancel-edit-btn" class="px-5 py-2.5 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition">Cancelar</button>
+                        <button type="submit" class="px-5 py-2.5 bg-[#2e6f40] text-white font-bold rounded-xl hover:bg-green-800 transition">Guardar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#1a3622] text-white pt-16 pb-8 border-t border-green-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div class="col-span-1 md:col-span-1">
+                <a href="#" class="flex items-center gap-2 mb-4">
+                    <img src="images/logo.png" alt="Logo" class="w-8 h-8 object-contain brightness-0 invert">
+                    <span class="font-bold text-xl">Veggie<span class="text-green-400">Fresh</span></span>
+                </a>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed">Connecting local farmers with consumers who care about where their food comes from.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Explore</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="descobrir.html" class="hover:text-green-400 transition">Find Farmers</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Browse Categories</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">For Farmers</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-green-400 transition">List Your Farm</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Farmer Dashboard</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Stay in Season</h4>
+                <p class="text-sm text-gray-400 mb-4">Get weekly updates on what's fresh.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email" class="bg-white/10 border border-white/20 rounded-l-lg px-4 py-2 text-sm outline-none text-white w-full focus:border-green-400">
+                    <button class="bg-[#2e6f40] px-4 py-2 rounded-r-lg text-white hover:bg-green-600 transition">✉</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>© 2026 VeggieFresh. All rights reserved. Supporting local agriculture.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ELEMENTOS DA UI
+            const displayName = document.getElementById('display-name');
+            const displayLocation = document.getElementById('display-location');
+            const navInitial = document.getElementById('user-initial');
+            const avatarLarge = document.getElementById('profile-avatar-large');
+            
+            const infoName = document.getElementById('info-name');
+            const infoEmail = document.getElementById('info-email');
+            const infoPhone = document.getElementById('info-phone');
+            const infoLocation = document.getElementById('info-location');
+            const infoBio = document.getElementById('info-bio');
+
+            // ELEMENTOS DO MODAL
+            const editModal = document.getElementById('edit-modal');
+            const btnOpenEdit = document.getElementById('btn-open-edit');
+            const btnCloseModal = document.getElementById('close-modal-btn');
+            const btnCancelEdit = document.getElementById('cancel-edit-btn');
+            const profileForm = document.getElementById('profile-form');
+            
+            const inputName = document.getElementById('input-name');
+            const inputEmail = document.getElementById('input-email');
+            const inputPhone = document.getElementById('input-phone');
+            const inputLocation = document.getElementById('input-location');
+            const inputBio = document.getElementById('input-bio');
+
+            // 1. DADOS DEFEITO E LOCALSTORAGE
+            const defaultProfile = {
+                name: 'Lorem Ipsum',
+                email: 'lorem.ipsum@email.pt',
+                phone: '(+351) 912 345 678',
+                location: 'Lisboa',
+                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam quis nostrud.'
+            };
+
+            let savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
+            if (!savedProfile) {
+                savedProfile = defaultProfile;
+                localStorage.setItem('veggieProfile', JSON.stringify(defaultProfile));
+            }
+
+            // 2. ATUALIZAR A INTERFACE (READ-ONLY)
+            function populateUI(profile) {
+                displayName.textContent = profile.name;
+                displayLocation.textContent = profile.location;
+                
+                infoName.textContent = profile.name;
+                infoEmail.textContent = profile.email;
+                infoPhone.textContent = profile.phone;
+                infoLocation.textContent = profile.location;
+                infoBio.textContent = profile.bio;
+                
+                const firstLetter = profile.name.charAt(0).toUpperCase();
+                if (navInitial) navInitial.textContent = firstLetter;
+                if (avatarLarge) avatarLarge.textContent = firstLetter;
+            }
+
+            // 3. PREENCHER O FORMULÁRIO QUANDO O MODAL ABRE
+            function populateForm(profile) {
+                inputName.value = profile.name;
+                inputEmail.value = profile.email;
+                inputPhone.value = profile.phone;
+                inputLocation.value = profile.location;
+                inputBio.value = profile.bio;
+            }
+
+            // Lógica do Modal
+            function openModal() {
+                const currentProfile = JSON.parse(localStorage.getItem('veggieProfile'));
+                populateForm(currentProfile);
+                editModal.classList.remove('hidden');
+                editModal.classList.add('flex');
+            }
+
+            function closeModal() {
+                editModal.classList.add('hidden');
+                editModal.classList.remove('flex');
+            }
+
+            btnOpenEdit.addEventListener('click', openModal);
+            btnCloseModal.addEventListener('click', closeModal);
+            btnCancelEdit.addEventListener('click', closeModal);
+
+            // Fechar modal ao clicar fora
+            editModal.addEventListener('click', (e) => {
+                if (e.target === editModal) closeModal();
+            });
+
+            // 4. GUARDAR ALTERAÇÕES NO FORMULÁRIO
+            profileForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const updatedProfile = {
+                    name: inputName.value,
+                    email: inputEmail.value,
+                    phone: inputPhone.value,
+                    location: inputLocation.value,
+                    bio: inputBio.value
+                };
+
+                localStorage.setItem('veggieProfile', JSON.stringify(updatedProfile));
+                populateUI(updatedProfile);
+                closeModal();
+            });
+
+            // Executa no arranque
+            populateUI(savedProfile);
+            
+            // --- CÓDIGO DO CONTADOR DO CARRINHO (Para manter o nº da navbar sincronizado nesta página) ---
+            function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
+            const cart = getCart();
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            }
+        });
+    </script>
+</body>
+</html>

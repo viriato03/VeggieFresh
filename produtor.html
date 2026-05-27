@@ -26,16 +26,19 @@
                 <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
             </span>
         </a>
+        
         <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
             <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
-            <a href="#" class="hover:text-green-700 transition">How It Works</a>
-            <a href="#" class="hover:text-green-700 transition">About</a>
+            <a href="index.html#how-it-works" class="hover:text-green-700 transition">How It Works</a>
+            <a href="index.html#about" class="hover:text-green-700 transition">About</a>
         </nav>
+        
         <div class="flex items-center gap-3">
-            <a href="descobrir.html" class="bg-brand text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
+            <a href="descobrir.html" class="bg-[#2e6f40] text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 Find Near Me
             </a>
+            
             <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Admin</button>
             <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</button>
             
@@ -46,9 +49,9 @@
                 <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
             </div>
 
-            <div class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
-                <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
-            </div>
+            <a href="perfil.html" class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
+                <div id="user-initial" class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
+            </a>
         </div>
     </header>
 
@@ -134,21 +137,96 @@
         </div>
     </main>
 
+    <!-- OVERLAY DO CARRINHO -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
         <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+            
+            <!-- Cabeçalho -->
             <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
                 <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">🛒 O Meu Carrinho</h2>
                 <button id="close-cart" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
             </div>
-            <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
-            <div class="p-5 border-t border-gray-100 bg-white">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-500 font-medium">Total Estimado</span>
-                    <span id="cart-total" class="font-bold text-2xl text-gray-900">€0.00</span>
+            
+            <!-- VISTA 1: Itens do Carrinho -->
+            <div id="cart-view" class="flex flex-col flex-1 overflow-hidden">
+                <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3">
+                    <p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio.</p>
                 </div>
-                <button class="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-green-800 transition shadow-md">Finalizar Compra</button>
-                <button id="clear-cart-btn" class="w-full mt-3 text-red-500 text-sm font-semibold hover:bg-red-50 py-2 rounded-lg transition">Limpar Carrinho</button>
+                
+                <div class="p-5 border-t border-gray-100 bg-white">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500 font-medium">Total Estimado</span>
+                        <span id="cart-total" class="font-bold text-2xl text-gray-900">€0.00</span>
+                    </div>
+                    <button id="checkout-btn" class="w-full bg-[#2e6f40] text-white font-bold py-3.5 rounded-xl hover:bg-green-800 transition shadow-md">
+                        Avançar para Checkout
+                    </button>
+                    <button id="clear-cart-btn" class="w-full mt-3 text-red-500 text-sm font-semibold hover:bg-red-50 py-2 rounded-lg transition">
+                        Limpar Carrinho
+                    </button>
+                </div>
             </div>
+
+            <!-- VISTA 2: Formulário de Recolha -->
+            <div id="checkout-view" class="hidden flex-col flex-1 overflow-hidden bg-gray-50">
+                <div class="p-5 flex-1 overflow-y-auto">
+                    <button id="back-to-cart" class="text-sm text-[#2e6f40] font-medium mb-6 flex items-center gap-1 hover:underline">
+                        ← Voltar ao carrinho
+                    </button>
+                    
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Detalhes da Recolha</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Local de Recolha</label>
+                            <select id="pickup-location" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:border-[#2e6f40] outline-none bg-white">
+                                <option value="quinta">Diretamente na Quinta</option>
+                                <option value="mercado">Mercado Municipal (Sábado)</option>
+                                <option value="ponto">Ponto de Recolha no Centro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Dia da Recolha</label>
+                            <input type="date" id="pickup-date" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:border-[#2e6f40] outline-none bg-white">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Horário de Recolha</label>
+                            <select id="pickup-time" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:border-[#2e6f40] outline-none bg-white">
+                                <option value="" disabled selected>Escolhe uma janela de horário...</option>
+                                <option value="manha">Manhã (09:00 - 12:30)</option>
+                                <option value="tarde">Tarde (14:00 - 18:00)</option>
+                                <option value="fim-tarde">Fim de tarde (18:00 - 20:00)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Notas (Opcional)</label>
+                            <textarea class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:border-[#2e6f40] outline-none h-20 resize-none bg-white" placeholder="Ex: A carrinha é branca..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-5 border-t border-gray-100 bg-white">
+                    <button id="confirm-order-btn" class="w-full bg-[#2e6f40] text-white font-bold py-3.5 rounded-xl hover:bg-green-800 transition shadow-md">
+                        Confirmar Encomenda
+                    </button>
+                </div>
+            </div>
+
+            <!-- VISTA 3: Sucesso -->
+            <div id="success-view" class="hidden flex-col flex-1 justify-center items-center p-8 text-center bg-white">
+                <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-sm">
+                    ✅
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Reserva Confirmada!</h3>
+                <p class="text-sm text-gray-500 mb-8 leading-relaxed">A tua encomenda foi registada com sucesso junto do produtor. <strong>Enviámos um email</strong> com todos os detalhes da recolha e a fatura associada.</p>
+                <button id="close-success-btn" class="w-full bg-gray-100 text-gray-800 font-bold py-3.5 rounded-xl hover:bg-gray-200 transition">
+                    Continuar a Explorar
+                </button>
+            </div>
+
         </div>
     </div>
 
@@ -298,6 +376,91 @@
                     }, 1000);
                 });
             });
+        }
+
+        // --- NAVEGAÇÃO DO CHECKOUT ---
+        const cartView = document.getElementById('cart-view');
+        const checkoutView = document.getElementById('checkout-view');
+        const successView = document.getElementById('success-view');
+        
+        const btnCheckout = document.getElementById('checkout-btn');
+        const btnBackToCart = document.getElementById('back-to-cart');
+        const btnConfirmOrder = document.getElementById('confirm-order-btn');
+        const btnCloseSuccess = document.getElementById('close-success-btn');
+
+        // Ir para o formulário de Checkout
+        if (btnCheckout) {
+            btnCheckout.addEventListener('click', () => {
+                const cart = getCart();
+                if (cart.length === 0) {
+                    alert('O teu carrinho está vazio! Adiciona produtos primeiro.');
+                    return;
+                }
+                cartView.classList.add('hidden');
+                cartView.classList.remove('flex');
+                checkoutView.classList.remove('hidden');
+                checkoutView.classList.add('flex');
+            });
+        }
+
+        // Voltar ao Carrinho
+        if (btnBackToCart) {
+            btnBackToCart.addEventListener('click', () => {
+                checkoutView.classList.add('hidden');
+                checkoutView.classList.remove('flex');
+                cartView.classList.remove('hidden');
+                cartView.classList.add('flex');
+            });
+        }
+
+        // Confirmar a Encomenda
+        if (btnConfirmOrder) {
+            btnConfirmOrder.addEventListener('click', () => {
+                const pickupTime = document.getElementById('pickup-time').value;
+                
+                // Validação simples: exigir que escolha a data
+                if (!pickupTime) {
+                    alert('Por favor, indica o dia e a hora para a recolha.');
+                    return;
+                }
+                
+                // Se tudo estiver bem, limpa o carrinho
+                localStorage.removeItem('veggieCart');
+                updateCartUI();
+                
+                // Esconde Checkout, Mostra Sucesso
+                checkoutView.classList.add('hidden');
+                checkoutView.classList.remove('flex');
+                successView.classList.remove('hidden');
+                successView.classList.add('flex');
+            });
+        }
+
+        // Fechar e Resetar vistas após sucesso
+        if (btnCloseSuccess) {
+            btnCloseSuccess.addEventListener('click', () => {
+                closeCart();
+                
+                // Volta a colocar o carrinho na vista 1 após fechar a aba lateral
+                setTimeout(() => {
+                    successView.classList.add('hidden');
+                    successView.classList.remove('flex');
+                    cartView.classList.remove('hidden');
+                    cartView.classList.add('flex');
+                    
+                    // Limpar a data preenchida
+                    document.getElementById('pickup-time').value = '';
+                }, 300);
+            });
+        }
+
+        // ATUALIZAR A LETRA DO PERFIL EM TODAS AS PÁGINAS
+        const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
+        if (savedProfile && savedProfile.name) {
+            const navInitial = document.getElementById('user-initial');
+            if (navInitial) {
+                navInitial.textContent = savedProfile.name.charAt(0).toUpperCase();
+            }
         }
 
         document.addEventListener('DOMContentLoaded', updateCartUI);
