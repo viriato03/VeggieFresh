@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeggieFresh - Home</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; }
+        .text-brand { color: #2e6f40; }
+        .bg-brand { background-color: #2e6f40; }
+        .text-brand-light { color: #4CAF50; }
+        .bg-brand-dark { background-color: #1a3622; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- NAVBAR ATUALIZADA -->
+    <header class="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="../images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
+            <span class="font-bold text-2xl tracking-tight">
+                <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
+            </span>
+        </a>
+        <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
+            <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
+            <a href="#" class="hover:text-green-700 transition">How It Works</a>
+            <a href="#" class="hover:text-green-700 transition">About</a>
+        </nav>
+        <div class="flex items-center gap-3">
+            <a href="descobrir.html" class="bg-brand text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Find Near Me
+            </a>
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Admin</button>
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</button>
+            
+            <!-- ÍCONE DO CARRINHO -->
+            <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
+            </div>
+
+            <!-- ÍCONE DO PERFIL (L) -->
+            <div class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
+                <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-[600px] flex items-center justify-center text-center">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500076656116-558758c991c1?q=80&w=2000')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
+        
+        <div class="relative z-10 max-w-4xl px-6 mt-16">
+            <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-tight">
+                Farm-fresh food, <span class="text-brand-light">right<br>in your neighborhood.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-medium">
+                Connect with local farmers near you and discover fresh, seasonal produce directly from the source. Eat better, live better, and support your community.
+            </p>
+            
+            <form action="descobrir.html" method="GET" class="flex bg-white p-2 rounded-full shadow-2xl max-w-2xl mx-auto">
+                <div class="flex items-center px-4 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                </div>
+                <input type="text" name="location" placeholder="Enter your Zip Code or City" class="flex-1 px-2 py-3 outline-none text-gray-700">
+                <button type="submit" class="bg-brand text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition shadow-md">Find Farms</button>
+            </form>
+
+            <div class="flex justify-center gap-3 mt-6">
+                <span class="bg-black/30 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium border border-white/20">🥬 Vegetables</span>
+                <span class="bg-black/30 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium border border-white/20">🍎 Fruits</span>
+                <span class="bg-black/30 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium border border-white/20">🥩 Meat</span>
+                <span class="bg-black/30 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium border border-white/20">🥚 Eggs</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand text-white py-6">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-green-700/50">
+            <div class="flex flex-col items-center">
+                <span class="text-2xl mb-1">🌱</span>
+                <span class="text-sm font-medium">Local Farmers</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-2xl mb-1">🛒</span>
+                <span class="text-sm font-medium">Fresh Produce</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-2xl mb-1">🤝</span>
+                <span class="text-sm font-medium">Community Driven</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-2xl mb-1">⭐</span>
+                <span class="text-sm font-medium">Quality Verified</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto text-center">
+        <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Explore By Category</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-10">What are you looking for?</h2>
+        
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
+                <span class="text-3xl">🥦</span><span class="text-xs font-bold text-gray-700">Vegetables</span>
+            </div>
+            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
+                <span class="text-3xl">🍅</span><span class="text-xs font-bold text-gray-700">Fruits</span>
+            </div>
+            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
+                <span class="text-3xl">🥛</span><span class="text-xs font-bold text-gray-700">Dairy</span>
+            </div>
+            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
+                <span class="text-3xl">🥚</span><span class="text-xs font-bold text-gray-700">Eggs</span>
+            </div>
+            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
+                <span class="text-3xl">🍯</span><span class="text-xs font-bold text-gray-700">Honey</span>
+            </div>
+            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
+                <span class="text-3xl">🌿</span><span class="text-xs font-bold text-gray-700">Herbs</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Top Rated</p>
+                <h2 class="text-3xl font-bold text-gray-900">Featured Farms</h2>
+            </div>
+            <a href="descobrir.html" class="text-brand font-medium hover:underline flex items-center gap-1">View All →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a href="produtor.html?id=quinta-verde" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
+                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1595856342890-e575775c7424')] bg-cover bg-center relative">
+                    <div class="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
+                    <div class="absolute bottom-4 left-4 flex gap-2">
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Vegetables</span>
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Fruits</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Quinta do Convento</h3>
+                        <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 4.8</span>
+                    </div>
+                    <p class="text-gray-500 text-xs mb-4">By Carlos Silva - Est. 2010</p>
+                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Especialistas em produtos da época, cultivados de forma sustentável e sem pesticidas químicos na região centro.</p>
+                    <div class="flex justify-between items-center text-xs font-medium text-gray-500 pt-4 border-t border-gray-100">
+                        <span class="flex items-center gap-1">📍 5.2 miles</span>
+                        <span class="text-brand">View Profile →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="produtor.html?id=alvorecer" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
+                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1500595046743-cd271d694d30')] bg-cover bg-center relative">
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Verified</div>
+                    <div class="absolute top-4 right-4 bg-white/90 text-gray-800 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">⭐ Featured</div>
+                    <div class="absolute bottom-4 left-4 flex gap-2">
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Dairy</span>
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Eggs</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Herdade do Alvorecer</h3>
+                        <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 4.6</span>
+                    </div>
+                    <p class="text-gray-500 text-xs mb-4">By Aolpiscing Elit - Est. 1975</p>
+                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Consectetur adipiscing elit, sed do eiusmod tempor. Ut enim ad minim veniam quis nostrud exercitation.</p>
+                    <div class="flex justify-between items-center text-xs font-medium text-gray-500 pt-4 border-t border-gray-100">
+                        <span class="flex items-center gap-1">📍 4.1 miles</span>
+                        <span class="text-brand">View Profile →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="produtor.html?id=valedoave" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
+                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1596162954151-cdcb927f4b39')] bg-cover bg-center relative">
+                    <div class="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">Organic</div>
+                    <div class="absolute bottom-4 left-4 flex gap-2">
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Honey</span>
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Herbs</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Vale do Ave Mel</h3>
+                        <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 5.0</span>
+                    </div>
+                    <p class="text-gray-500 text-xs mb-4">By Familia Martins</p>
+                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Mel multiflora e plantas aromáticas de produção biológica certificada, colhidas nas encostas do vale.</p>
+                    <div class="flex justify-between items-center text-xs font-medium text-gray-500 pt-4 border-t border-gray-100">
+                        <span class="flex items-center gap-1">📍 12.3 miles</span>
+                        <span class="text-brand">View Profile →</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#f4f3f0] border-y border-gray-200 mt-10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Simple Process</p>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">How VeggieFresh Works</h2>
+            <p class="text-gray-500 max-w-xl mx-auto mb-16">Three easy steps to connect with local farmers and bring the freshest produce to your table.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <div class="text-brand font-bold text-2xl mb-4 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">01</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Enter Your Location</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Tell us where you are, and we'll show you a map of verified local farmers and markets operating in your neighborhood.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <div class="text-brand font-bold text-2xl mb-4 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">02</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Explore & Filter</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Browse through categories, filter by dietary preferences like organic or vegan, and see what's currently in stock.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                    <div class="text-brand font-bold text-2xl mb-4 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">03</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Connect & Purchase</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Add items to your cart, message the farmer directly if you have questions, and checkout securely on our platform.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <a href="descobrir.html" class="inline-block bg-brand text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition shadow-sm">Start Exploring Now →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Community Stories</p>
+            <h2 class="text-3xl font-bold text-gray-900">What People Are Saying</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <div class="text-yellow-400 mb-4 text-lg">★★★★★</div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">"VeggieFresh completely changed how I buy my groceries. I found amazing local farms right in my town that I never knew existed. The quality is unmatched!"</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">S</div>
+                    <div>
+                        <p class="font-bold text-gray-900 text-sm">Sarah Mitchell</p>
+                        <p class="text-xs text-gray-500">Local Foodie</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <div class="text-yellow-400 mb-4 text-lg">★★★★★</div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">"As a restaurant owner, finding consistent, high-quality local produce was a challenge. This platform makes sourcing ingredients so much easier."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">M</div>
+                    <div>
+                        <p class="font-bold text-gray-900 text-sm">Michael Chang</p>
+                        <p class="text-xs text-gray-500">Chef & Owner</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <div class="text-yellow-400 mb-4 text-lg">★★★★★</div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">"The transparency is what I love most. Knowing exactly where my food comes from and directly supporting the families who grow it feels great."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">E</div>
+                    <div>
+                        <p class="font-bold text-gray-900 text-sm">Elena Rodriguez</p>
+                        <p class="text-xs text-gray-500">Health Enthusiast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 mb-20">
+        <div class="bg-brand-dark rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854')] bg-cover bg-center opacity-10"></div>
+            <div class="relative z-10">
+                <p class="text-green-400 font-bold text-sm uppercase tracking-wider mb-4">Join The Movement</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Support your local farmers. <span class="text-green-400">Eat better. Live better.</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">Whether you're looking for fresh produce or want to sell your farm's harvest, VeggieFresh is the platform for you.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="descobrir.html" class="bg-brand text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition">Find Farms Near Me</a>
+                    <button class="bg-transparent border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-brand-dark transition">List Your Farm</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t border-green-900">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div class="col-span-1 md:col-span-1">
+                <a href="#" class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl">🥬</span>
+                    <span class="font-bold text-xl">Veggie<span class="text-green-400">Fresh</span></span>
+                </a>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed">Connecting local farmers with consumers who care about where their food comes from.</p>
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-brand transition">in</div>
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-brand transition">tw</div>
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-brand transition">fb</div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Explore</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-green-400 transition">Find Farmers</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Browse Categories</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Seasonal Picks</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Farmers Markets</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">For Farmers</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-green-400 transition">List Your Farm</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Farmer Dashboard</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Success Stories</a></li>
+                    <li><a href="#" class="hover:text-green-400 transition">Resources</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Stay in Season</h4>
+                <p class="text-sm text-gray-400 mb-4">Get weekly updates on what's fresh and available near you.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email" class="bg-white/10 border border-white/20 rounded-l-lg px-4 py-2 text-sm outline-none text-white w-full focus:border-green-400">
+                    <button class="bg-brand px-4 py-2 rounded-r-lg text-white hover:bg-green-600 transition">✉</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+            <p>© 2026 VeggieFresh. All rights reserved. Supporting local agriculture.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                <a href="#" class="hover:text-gray-300">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- OVERLAY DO CARRINHO (Escondido por defeito) -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
+        <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+            
+            <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">🛒 O Meu Carrinho</h2>
+                <button id="close-cart" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
+            </div>
+            
+            <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3">
+                <p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio.</p>
+            </div>
+            
+            <div class="p-5 border-t border-gray-100 bg-white">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-500 font-medium">Total Estimado</span>
+                    <span id="cart-total" class="font-bold text-2xl text-gray-900">€0.00</span>
+                </div>
+                <button class="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-green-800 transition shadow-md">
+                    Finalizar Compra
+                </button>
+                <button id="clear-cart-btn" class="w-full mt-3 text-red-500 text-sm font-semibold hover:bg-red-50 py-2 rounded-lg transition">
+                    Limpar Carrinho
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DO CARRINHO -->
+    <script>
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const btnOpenCart = document.getElementById('cart-button');
+        const btnCloseCart = document.getElementById('close-cart');
+        const btnClearCart = document.getElementById('clear-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+
+        function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
+        function saveCart(cart) { localStorage.setItem('veggieCart', JSON.stringify(cart)); }
+
+        function updateCartUI() {
+            const cart = getCart();
+            const cartCount = document.getElementById('cart-count');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            if (cartCount) cartCount.textContent = totalItems;
+            renderCartItems(cart);
+        }
+
+        function renderCartItems(cart) {
+            cartItemsContainer.innerHTML = ''; 
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio. Adiciona produtos frescos!</p>';
+                cartTotalElement.textContent = '€0.00';
+                return;
+            }
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                const itemHTML = `
+                    <div class="flex justify-between items-center p-3 bg-gray-50 border border-gray-100 rounded-xl">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                            <p class="text-xs text-gray-500">${item.quantity}x a €${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="font-bold text-brand">€${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += itemHTML;
+            });
+
+            cartTotalElement.textContent = `€${totalPrice.toFixed(2)}`;
+        }
+
+        function openCart() {
+            cartOverlay.classList.remove('hidden');
+            setTimeout(() => cartSidebar.classList.remove('translate-x-full'), 10);
+        }
+
+        function closeCart() {
+            cartSidebar.classList.add('translate-x-full');
+            setTimeout(() => cartOverlay.classList.add('hidden'), 300);
+        }
+
+        btnOpenCart.addEventListener('click', openCart);
+        btnCloseCart.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) closeCart();
+        });
+
+        btnClearCart.addEventListener('click', () => {
+            localStorage.removeItem('veggieCart');
+            updateCartUI();
+        });
+
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+    </script>
+</body>
+</html>

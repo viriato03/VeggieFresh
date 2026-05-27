@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeggieFresh - Perfil do Produtor</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="../data/data.js"></script>
+    
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #fcfcfc; }
+        .text-brand { color: #2e6f40; } 
+        .bg-brand { background-color: #2e6f40; }
+        .bg-brand-dark { background-color: #1a3622; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="../images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
+            <span class="font-bold text-2xl tracking-tight">
+                <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
+            </span>
+        </a>
+        <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
+            <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
+            <a href="#" class="hover:text-green-700 transition">How It Works</a>
+            <a href="#" class="hover:text-green-700 transition">About</a>
+        </nav>
+        <div class="flex items-center gap-3">
+            <a href="descobrir.html" class="bg-brand text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Find Near Me
+            </a>
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Admin</button>
+            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</button>
+            
+            <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
+            </div>
+
+            <div class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
+                <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        
+        <div class="text-sm text-gray-500 mb-6 flex items-center gap-2">
+            <a href="descobrir.html" class="text-brand font-medium hover:underline">← Back to Farms</a>
+            <span>|</span>
+            <span id="breadcrumb-name">Carregando...</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
+                    <div id="farm-image" class="h-80 rounded-2xl bg-cover bg-center relative mb-6 bg-gray-200">
+                        <div class="absolute top-4 right-4 bg-brand text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
+                            ⭐ Featured Farm
+                        </div>
+                        <div id="farm-tags" class="absolute bottom-4 left-4 flex gap-2">
+                            </div>
+                    </div>
+
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h1 id="farm-name" class="text-3xl font-bold text-gray-900">Carregando...</h1>
+                            <p id="farm-owner" class="text-sm text-gray-500 mt-1">...</p>
+                        </div>
+                        <div class="flex items-center gap-2 bg-yellow-50 px-3 py-1.5 rounded-lg border border-yellow-100">
+                            <span id="farm-rating" class="text-yellow-500 font-bold">⭐ 0.0</span>
+                            <span id="farm-reviews" class="text-xs text-gray-500">(0 reviews)</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-brand text-sm font-medium mb-4 flex items-center gap-1">
+                        📍 <span id="farm-address">...</span> — <span id="farm-distance" class="text-brand">...</span>
+                    </p>
+
+                    <p id="farm-description" class="text-gray-600 text-sm leading-relaxed mb-3">...</p>
+                    <button class="text-brand text-sm font-semibold flex items-center gap-1 hover:underline">↓ Read full story</button>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">📄 Certifications</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-green-50 border border-green-200 text-brand text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2">✅ Animal Welfare Approved</span>
+                        <span class="bg-green-50 border border-green-200 text-brand text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2">✅ Certified Humane</span>
+                        <span class="bg-green-50 border border-green-200 text-brand text-sm font-medium px-4 py-2 rounded-full flex items-center gap-2">✅ Grass-Fed Certified</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4">Available Products</h2>
+                    <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm sticky top-24">
+                    <h2 class="text-lg font-bold text-gray-900 mb-6">Contact This Farm</h2>
+                    
+                    <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Market Hours</h3>
+                    <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2">🕒 Wednesday</span><span>8:00 AM - 4:00 PM</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2">🕒 Friday</span><span>8:00 AM - 4:00 PM</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2">🕒 Saturday</span><span>7:00 AM - 3:00 PM</span></li>
+                    </ul>
+
+                    <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                        <li class="flex items-center gap-3"><span class="text-brand">📞</span> (+351) 266-918-769</li>
+                        <li class="flex items-center gap-3"><span class="text-brand">✉️</span> <span id="farm-email">info@quinta.pt</span></li>
+                        <li class="flex items-center gap-3"><span class="text-brand">🌐</span> Visit Website</li>
+                    </ul>
+
+                    <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Send a Message</h3>
+                    <textarea class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm mb-3 outline-none focus:border-brand h-24 resize-none" placeholder="Hi, I'm interested in your products..."></textarea>
+                    <button class="w-full bg-[#96bda2] hover:bg-brand text-white font-bold py-3 rounded-xl transition duration-300 flex justify-center items-center gap-2">✉️ Send Message</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
+        <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+            <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">🛒 O Meu Carrinho</h2>
+                <button id="close-cart" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
+            </div>
+            <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+            <div class="p-5 border-t border-gray-100 bg-white">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-500 font-medium">Total Estimado</span>
+                    <span id="cart-total" class="font-bold text-2xl text-gray-900">€0.00</span>
+                </div>
+                <button class="w-full bg-brand text-white font-bold py-3.5 rounded-xl hover:bg-green-800 transition shadow-md">Finalizar Compra</button>
+                <button id="clear-cart-btn" class="w-full mt-3 text-red-500 text-sm font-semibold hover:bg-red-50 py-2 rounded-lg transition">Limpar Carrinho</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. LÓGICA DINÂMICA DA PÁGINA ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Extrair o ID do URL (ex: ?id=vale-verde)
+            const urlParams = new URLSearchParams(window.location.search);
+            // Se não houver id no link, usamos 'alvorecer' por defeito
+            const farmId = urlParams.get('id') || 'alvorecer'; 
+            
+            // Procurar a quinta na nossa variável farmsData (criada no data.js)
+            const farm = farmsData.find(f => f.id === farmId);
+
+            if (farm) {
+                // Atualizar os textos da página
+                document.title = `${farm.name} - VeggieFresh`;
+                document.getElementById('breadcrumb-name').textContent = farm.name;
+                document.getElementById('farm-name').textContent = farm.name;
+                document.getElementById('farm-owner').textContent = `by ${farm.owner}`;
+                document.getElementById('farm-rating').textContent = `⭐ ${farm.rating}`;
+                document.getElementById('farm-reviews').textContent = `(${farm.reviews} reviews)`;
+                document.getElementById('farm-address').textContent = farm.address;
+                document.getElementById('farm-distance').textContent = `${farm.distance} from you`;
+                document.getElementById('farm-description').textContent = farm.description;
+                document.getElementById('farm-email').textContent = `info@${farm.id}.pt`;
+                
+                // Atualizar a imagem
+                document.getElementById('farm-image').style.backgroundImage = `url('${farm.image}')`;
+
+                // Atualizar Tags
+                const tagsContainer = document.getElementById('farm-tags');
+                tagsContainer.innerHTML = farm.tags.map(tag => 
+                    `<span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">${tag}</span>`
+                ).join('');
+
+                // Renderizar Produtos Dinamicamente
+                const productsContainer = document.getElementById('products-container');
+                productsContainer.innerHTML = farm.products.map(product => {
+                    if (product.inStock) {
+                        return `
+                        <div class="border border-gray-100 bg-gray-50/50 p-4 rounded-2xl flex justify-between items-center">
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm">${product.name}</h3>
+                                <p class="text-xs text-gray-500">€${product.price.toFixed(2)} / ${product.unit}</p>
+                            </div>
+                            <button data-name="${product.name}" data-price="${product.price}" class="add-to-cart-btn bg-brand text-white text-xs font-bold px-4 py-1.5 rounded-full hover:bg-green-800 transition">Add</button>
+                        </div>`;
+                    } else {
+                        return `
+                        <div class="border border-red-50 bg-red-50/20 p-4 rounded-2xl flex justify-between items-center opacity-70">
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm">${product.name}</h3>
+                                <p class="text-xs text-red-500 font-medium">Out of stock</p>
+                            </div>
+                        </div>`;
+                    }
+                }).join('');
+
+                // Agora que os botões foram criados, ligamos a função do carrinho a eles!
+                attachCartListeners();
+            } else {
+                document.getElementById('farm-name').textContent = "Produtor não encontrado";
+            }
+        });
+
+
+        // --- 2. LÓGICA DO CARRINHO (Mantida igual, mas ativada dinamicamente) ---
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const btnOpenCart = document.getElementById('cart-button');
+        const btnCloseCart = document.getElementById('close-cart');
+        const btnClearCart = document.getElementById('clear-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+
+        function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
+        function saveCart(cart) { localStorage.setItem('veggieCart', JSON.stringify(cart)); }
+
+        function updateCartUI() {
+            const cart = getCart();
+            const cartCount = document.getElementById('cart-count');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            if (cartCount) cartCount.textContent = totalItems;
+            renderCartItems(cart);
+        }
+
+        function renderCartItems(cart) {
+            cartItemsContainer.innerHTML = ''; 
+            let totalPrice = 0;
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio.</p>';
+                cartTotalElement.textContent = '€0.00';
+                return;
+            }
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalPrice += itemTotal;
+                cartItemsContainer.innerHTML += `
+                    <div class="flex justify-between items-center p-3 bg-gray-50 border border-gray-100 rounded-xl">
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                            <p class="text-xs text-gray-500">${item.quantity}x a €${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="font-bold text-brand">€${itemTotal.toFixed(2)}</div>
+                    </div>`;
+            });
+            cartTotalElement.textContent = `€${totalPrice.toFixed(2)}`;
+        }
+
+        function openCart() {
+            cartOverlay.classList.remove('hidden');
+            setTimeout(() => cartSidebar.classList.remove('translate-x-full'), 10);
+        }
+
+        function closeCart() {
+            cartSidebar.classList.add('translate-x-full');
+            setTimeout(() => cartOverlay.classList.add('hidden'), 300);
+        }
+
+        btnOpenCart.addEventListener('click', openCart);
+        btnCloseCart.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', (e) => { if (e.target === cartOverlay) closeCart(); });
+        btnClearCart.addEventListener('click', () => { localStorage.removeItem('veggieCart'); updateCartUI(); });
+
+        // Nova função para associar o clique de adicionar ao carrinho aos botões dinâmicos
+        function attachCartListeners() {
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productName = this.getAttribute('data-name');
+                    const productPrice = parseFloat(this.getAttribute('data-price'));
+                    let cart = getCart();
+                    const existingItem = cart.find(item => item.name === productName);
+                    
+                    if (existingItem) existingItem.quantity += 1;
+                    else cart.push({ name: productName, price: productPrice, quantity: 1 });
+                    
+                    saveCart(cart);
+                    updateCartUI();
+                    
+                    const originalText = this.textContent;
+                    this.textContent = 'Adicionado!';
+                    this.classList.replace('bg-brand', 'bg-green-500');
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.replace('bg-green-500', 'bg-brand');
+                    }, 1000);
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+    </script>
+</body>
+</html>
