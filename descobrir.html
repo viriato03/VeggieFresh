@@ -22,49 +22,47 @@
 </head>
 <body class="h-screen flex flex-col bg-white text-gray-800 overflow-hidden">
 
-    <!-- NAVBAR ATUALIZADA -->
     <header class="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 sticky top-0 z-50">
-        <a href="index.html" class="flex items-center gap-3">
-            <img src="./images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
-            <span class="font-bold text-2xl tracking-tight">
-                <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
-            </span>
+    <a href="index.html" class="flex items-center gap-3">
+        <img src="./images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
+        <span class="font-bold text-2xl tracking-tight">
+            <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
+        </span>
+    </a>
+    
+    <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
+        <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
+        <a href="index.html#how-it-works" class="hover:text-green-700 transition">How It Works</a>
+        <a href="index.html#about" class="hover:text-green-700 transition">About</a>
+    </nav>
+    
+    <div class="flex items-center gap-3">
+        <a href="descobrir.html" class="bg-[#2e6f40] text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            Find Near Me
         </a>
         
-        <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
-            <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
-            <a href="index.html#how-it-works" class="hover:text-green-700 transition">How It Works</a>
-            <a href="index.html#about" class="hover:text-green-700 transition">About</a>
-        </nav>
+        <!-- Botão Vendedor transformado em link -->
+        <a href="vendedor.html" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</a>
         
-        <div class="flex items-center gap-3">
-            <a href="descobrir.html" class="bg-[#2e6f40] text-white px-5 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-green-800 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                Find Near Me
-            </a>
-            
-            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Admin</button>
-            <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</button>
-            
-            <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
-            </div>
-
-            <a href="perfil.html" class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
-                <div id="user-initial" class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
-            </a>
+        <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
         </div>
-    </header>
 
-    <!-- BARRA DE FERRAMENTAS -->
-    <div class="px-6 py-4 border-b border-gray-200 bg-white flex-shrink-0 z-40 shadow-sm">
+        <a href="perfil.html" class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
+            <div id="user-initial" class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
+        </a>
+    </div>
+</header>
+
+    <div class="px-6 py-4 border-b border-gray-200 bg-white flex-shrink-0 z-40 shadow-sm relative">
         <div class="flex justify-between items-end mb-4">
             <div>
                 <h1 class="text-2xl font-bold text-gray-900 mb-1">Find Local Farms</h1>
-                <p class="text-sm text-gray-500"><span class="font-bold text-green-700">6</span> farms found near you</p>
+                <p class="text-sm text-gray-500"><span id="farm-count" class="font-bold text-green-700">6</span> farms found near you</p>
             </div>
             
             <div class="flex bg-gray-100 p-1 rounded-lg border border-gray-200">
@@ -88,22 +86,51 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 </div>
-                <input type="text" placeholder="Search farms, products, city..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-green-500 focus:bg-white transition">
+                <input type="text" id="search-input" placeholder="Search farms, products, city..." class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-green-500 focus:bg-white transition">
             </div>
-            <button class="px-5 py-2.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 flex items-center gap-2 hover:bg-gray-50 transition shadow-sm">
+            <button id="btn-filters" class="px-5 py-2.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 flex items-center gap-2 hover:bg-gray-50 transition shadow-sm relative">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                 Filters
             </button>
         </div>
     </div>
 
-    <!-- ÁREA PRINCIPAL -->
+    <div id="filters-dropdown" class="hidden absolute right-6 top-[150px] w-56 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-4">
+        <h3 class="font-bold text-gray-900 mb-3 text-sm">Categorias</h3>
+        <div class="space-y-2" id="filter-categories">
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded transition">
+                <input type="checkbox" value="Vegetables" class="w-4 h-4 accent-[#2e6f40] rounded border-gray-300"> 
+                <span class="text-sm font-medium text-gray-700">🥦 Vegetables</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded transition">
+                <input type="checkbox" value="Poultry" class="w-4 h-4 accent-[#2e6f40] rounded border-gray-300"> 
+                <span class="text-sm font-medium text-gray-700">🐔 Poultry</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded transition">
+                <input type="checkbox" value="Dairy" class="w-4 h-4 accent-[#2e6f40] rounded border-gray-300"> 
+                <span class="text-sm font-medium text-gray-700">🥛 Dairy</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded transition">
+                <input type="checkbox" value="Herbs" class="w-4 h-4 accent-[#2e6f40] rounded border-gray-300"> 
+                <span class="text-sm font-medium text-gray-700">🌿 Herbs</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded transition">
+                <input type="checkbox" value="Honey" class="w-4 h-4 accent-[#2e6f40] rounded border-gray-300"> 
+                <span class="text-sm font-medium text-gray-700">🍯 Honey</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-1 rounded transition">
+                <input type="checkbox" value="Fruits" class="w-4 h-4 accent-[#2e6f40] rounded border-gray-300"> 
+                <span class="text-sm font-medium text-gray-700">🍎 Fruits</span>
+            </label>
+        </div>
+    </div>
+
     <main class="flex-1 flex overflow-hidden">
         
         <aside id="sidebar" class="w-full md:w-[450px] lg:w-[500px] bg-white border-r border-gray-200 h-full overflow-y-auto no-scrollbar pb-10 transition-all duration-300">
             <div class="flex flex-col">
                 
-                <a href="produtor.html?id=vale-verde" class="block group">
+                <a href="produtor.html?id=vale-verde" class="block group farm-item" data-id="vale-verde">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
                         <img src="./images/farm02.jpg" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
@@ -123,7 +150,7 @@
                     </div>
                 </a>
 
-                <a href="produtor.html?id=casal-campos" class="block group">
+                <a href="produtor.html?id=casal-campos" class="block group farm-item" data-id="casal-campos">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
                         <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=150&h=150&fit=crop" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
@@ -143,7 +170,7 @@
                     </div>
                 </a>
 
-                <a href="produtor.html?id=alvorecer" class="block group">
+                <a href="produtor.html?id=alvorecer" class="block group farm-item" data-id="alvorecer">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
                         <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=150&h=150&fit=crop" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
@@ -163,7 +190,7 @@
                     </div>
                 </a>
 
-                <a href="produtor.html?id=monte-ervas" class="block group">
+                <a href="produtor.html?id=monte-ervas" class="block group farm-item" data-id="monte-ervas">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
                         <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=150&h=150&fit=crop" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
@@ -183,7 +210,7 @@
                     </div>
                 </a>
 
-                <a href="produtor.html?id=solar-abelhas" class="block group">
+                <a href="produtor.html?id=solar-abelhas" class="block group farm-item" data-id="solar-abelhas">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
                         <img src="./images/bees.jpg" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
@@ -203,7 +230,7 @@
                     </div>
                 </a>
 
-                <a href="produtor.html?id=pomar-douro" class="block group">
+                <a href="produtor.html?id=pomar-douro" class="block group farm-item" data-id="pomar-douro">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
                         <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=150&h=150&fit=crop" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
@@ -232,18 +259,14 @@
         
     </main>
 
-    <!-- OVERLAY DO CARRINHO (Escondido por defeito) -->
-    <!-- OVERLAY DO CARRINHO -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
         <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
             
-            <!-- Cabeçalho -->
             <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
                 <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">🛒 O Meu Carrinho</h2>
                 <button id="close-cart" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
             </div>
             
-            <!-- VISTA 1: Itens do Carrinho -->
             <div id="cart-view" class="flex flex-col flex-1 overflow-hidden">
                 <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3">
                     <p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio.</p>
@@ -263,7 +286,6 @@
                 </div>
             </div>
 
-            <!-- VISTA 2: Formulário de Recolha -->
             <div id="checkout-view" class="hidden flex-col flex-1 overflow-hidden bg-gray-50">
                 <div class="p-5 flex-1 overflow-y-auto">
                     <button id="back-to-cart" class="text-sm text-[#2e6f40] font-medium mb-6 flex items-center gap-1 hover:underline">
@@ -311,7 +333,6 @@
                 </div>
             </div>
 
-            <!-- VISTA 3: Sucesso -->
             <div id="success-view" class="hidden flex-col flex-1 justify-center items-center p-8 text-center bg-white">
                 <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-sm">
                     ✅
@@ -326,7 +347,6 @@
         </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // MAPA
@@ -345,13 +365,70 @@
             iconAnchor: [15, 15]
         });
 
-        L.marker([40.6200, -8.6200], {icon: farmIcon}).addTo(map).bindPopup("<b>Quinta do Vale Verde</b>");
-        L.marker([40.6000, -8.6700], {icon: farmIcon}).addTo(map).bindPopup("<b>Casal dos Campos</b>");
-        L.marker([40.6500, -8.6000], {icon: farmIcon}).addTo(map).bindPopup("<b>Herdade do Alvorecer</b>");
-        L.marker([40.6800, -8.6300], {icon: farmIcon}).addTo(map).bindPopup("<b>Monte das Ervas</b>");
-        L.marker([40.7000, -8.5500], {icon: farmIcon}).addTo(map).bindPopup("<b>Solar das Abelhas</b>");
-        L.marker([40.5500, -8.5800], {icon: farmIcon}).addTo(map).bindPopup("<b>Pomar do Douro</b>");
+        // --- SISTEMA DE DADOS PARA FILTRAGEM ---
+        const farmsData = [
+            { id: 'vale-verde', name: 'Quinta do Vale Verde', category: 'Vegetables', coords: [40.6200, -8.6200] },
+            { id: 'casal-campos', name: 'Casal dos Campos', category: 'Poultry', coords: [40.6000, -8.6700] },
+            { id: 'alvorecer', name: 'Herdade do Alvorecer', category: 'Dairy', coords: [40.6500, -8.6000] },
+            { id: 'monte-ervas', name: 'Monte das Ervas', category: 'Herbs', coords: [40.6800, -8.6300] },
+            { id: 'solar-abelhas', name: 'Solar das Abelhas', category: 'Honey', coords: [40.7000, -8.5500] },
+            { id: 'pomar-douro', name: 'Pomar do Douro', category: 'Fruits', coords: [40.5500, -8.5800] }
+        ];
 
+        // Criar marcadores e ligar aos elementos DOM da sidebar
+        const farmObjects = farmsData.map(farm => {
+            const marker = L.marker(farm.coords, {icon: farmIcon}).bindPopup(`<b>${farm.name}</b>`);
+            marker.addTo(map);
+            const domElement = document.querySelector(`.farm-item[data-id="${farm.id}"]`);
+            return { ...farm, marker, domElement };
+        });
+
+        // --- LÓGICA DE PESQUISA E FILTROS ---
+        const searchInput = document.getElementById('search-input');
+        const btnFilters = document.getElementById('btn-filters');
+        const filtersDropdown = document.getElementById('filters-dropdown');
+        const checkboxes = document.querySelectorAll('#filter-categories input[type="checkbox"]');
+        const countDisplay = document.getElementById('farm-count');
+
+        btnFilters.addEventListener('click', (e) => {
+            e.stopPropagation();
+            filtersDropdown.classList.toggle('hidden');
+        });
+
+        // Fechar o dropdown de filtros ao clicar fora dele
+        document.addEventListener('click', (e) => {
+            if (!filtersDropdown.contains(e.target) && !btnFilters.contains(e.target)) {
+                filtersDropdown.classList.add('hidden');
+            }
+        });
+
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const activeCategories = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+
+            let visibleCount = 0;
+
+            farmObjects.forEach(farm => {
+                const matchesSearch = farm.name.toLowerCase().includes(searchTerm) || farm.category.toLowerCase().includes(searchTerm);
+                const matchesCategory = activeCategories.length === 0 || activeCategories.includes(farm.category);
+
+                if (matchesSearch && matchesCategory) {
+                    if (farm.domElement) farm.domElement.style.display = 'block';
+                    if (!map.hasLayer(farm.marker)) map.addLayer(farm.marker);
+                    visibleCount++;
+                } else {
+                    if (farm.domElement) farm.domElement.style.display = 'none';
+                    if (map.hasLayer(farm.marker)) map.removeLayer(farm.marker);
+                }
+            });
+
+            if (countDisplay) countDisplay.textContent = visibleCount;
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        checkboxes.forEach(cb => cb.addEventListener('change', applyFilters));
+
+        // --- LÓGICA DE VISUALIZAÇÃO (LIST / SPLIT / MAP) ---
         const btnList = document.getElementById('btn-list');
         const btnSplit = document.getElementById('btn-split');
         const btnMap = document.getElementById('btn-map');
@@ -390,7 +467,7 @@
             setTimeout(() => { map.invalidateSize(); }, 100);
         });
 
-        // CARRINHO
+        // --- LÓGICA DO CARRINHO ---
         const cartOverlay = document.getElementById('cart-overlay');
         const cartSidebar = document.getElementById('cart-sidebar');
         const btnOpenCart = document.getElementById('cart-button');
@@ -400,8 +477,7 @@
         const cartTotalElement = document.getElementById('cart-total');
 
         function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
-        function saveCart(cart) { localStorage.setItem('veggieCart', JSON.stringify(cart)); }
-
+        
         function updateCartUI() {
             const cart = getCart();
             const cartCount = document.getElementById('cart-count');
@@ -469,7 +545,6 @@
         const btnConfirmOrder = document.getElementById('confirm-order-btn');
         const btnCloseSuccess = document.getElementById('close-success-btn');
 
-        // Ir para o formulário de Checkout
         if (btnCheckout) {
             btnCheckout.addEventListener('click', () => {
                 const cart = getCart();
@@ -484,7 +559,6 @@
             });
         }
 
-        // Voltar ao Carrinho
         if (btnBackToCart) {
             btnBackToCart.addEventListener('click', () => {
                 checkoutView.classList.add('hidden');
@@ -494,22 +568,15 @@
             });
         }
 
-        // Confirmar a Encomenda
         if (btnConfirmOrder) {
             btnConfirmOrder.addEventListener('click', () => {
                 const pickupTime = document.getElementById('pickup-time').value;
-                
-                // Validação simples: exigir que escolha a data
                 if (!pickupTime) {
                     alert('Por favor, indica o dia e a hora para a recolha.');
                     return;
                 }
-                
-                // Se tudo estiver bem, limpa o carrinho
                 localStorage.removeItem('veggieCart');
                 updateCartUI();
-                
-                // Esconde Checkout, Mostra Sucesso
                 checkoutView.classList.add('hidden');
                 checkoutView.classList.remove('flex');
                 successView.classList.remove('hidden');
@@ -517,25 +584,27 @@
             });
         }
 
-        // Fechar e Resetar vistas após sucesso
         if (btnCloseSuccess) {
             btnCloseSuccess.addEventListener('click', () => {
                 closeCart();
-                
-                // Volta a colocar o carrinho na vista 1 após fechar a aba lateral
                 setTimeout(() => {
                     successView.classList.add('hidden');
                     successView.classList.remove('flex');
                     cartView.classList.remove('hidden');
                     cartView.classList.add('flex');
-                    
-                    // Limpar a data preenchida
                     document.getElementById('pickup-time').value = '';
                 }, 300);
             });
         }
 
-        
+        // Lógica Global - Inicial da Navbar
+        const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
+        if (savedProfile && savedProfile.name) {
+            const navInitial = document.getElementById('user-initial');
+            if (navInitial) {
+                navInitial.textContent = savedProfile.name.charAt(0).toUpperCase();
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', updateCartUI);
     </script>

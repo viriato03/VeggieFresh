@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Produtor - VeggieFresh</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { background-color: #2e6f40; color: white; border-color: #2e6f40; }
+        .toggle-checkbox:checked { right: 0; border-color: #2e6f40; }
+        .toggle-checkbox:checked + .toggle-label { background-color: #2e6f40; }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="./images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain" onerror="this.src='https://via.placeholder.com/40'">
+            <span class="font-bold text-2xl tracking-tight">
+                <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
+            </span>
+        </a>
+        
+        <div class="flex items-center gap-3">
+            <a href="descobrir.html" class="text-gray-600 font-medium px-4 py-2 hover:text-green-700 transition hidden md:block">Explorar</a>
+            <span class="bg-[#2e6f40] text-white px-4 py-2 rounded-full font-medium flex items-center gap-2 shadow-sm">Modo Produtor</span>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-8 flex flex-col md:flex-row gap-8">
+        
+        <aside class="w-full md:w-64 shrink-0">
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sticky top-24">
+                <div class="flex items-center gap-3 mb-6 p-2">
+                    <div class="w-12 h-12 bg-green-100 text-green-700 rounded-full flex items-center justify-center font-bold text-xl" id="farm-initial">Q</div>
+                    <div>
+                        <h2 class="font-bold text-gray-900 text-sm" id="sidebar-farm-name">A Minha Quinta</h2>
+                        <p class="text-xs text-gray-500">Painel de Gestão</p>
+                    </div>
+                </div>
+
+                <nav class="space-y-2">
+                    <button onclick="switchTab('dashboard')" id="btn-tab-dashboard" class="tab-btn active w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 border border-transparent transition text-left">
+                        📊 Visão Geral
+                    </button>
+                    <button onclick="switchTab('produtos')" id="btn-tab-produtos" class="tab-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 border border-transparent transition text-left">
+                        🥬 Os Meus Produtos
+                    </button>
+                    <button onclick="switchTab('perfil')" id="btn-tab-perfil" class="tab-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50 border border-transparent transition text-left">
+                        ⚙️ Perfil da Quinta
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="flex-1">
+            
+            <section id="tab-dashboard" class="tab-content active space-y-6">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900 mb-1">Visão Geral</h1>
+                    <p class="text-sm text-gray-500">Acompanha as tuas vendas e métricas de desempenho.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <p class="text-sm font-medium text-gray-500 mb-1">Vendas Totais</p>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">€<span id="stat-sales">1,250.00</span></h3>
+                        <p class="text-xs text-green-600 font-medium flex items-center gap-1">↑ 12% desde o mês passado</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <p class="text-sm font-medium text-gray-500 mb-1">Taxa VeggieFresh (5%)</p>
+                            <span class="bg-gray-100 text-gray-500 text-[10px] font-bold px-2 py-0.5 rounded-full">Automático</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-red-500 mb-2">-€<span id="stat-fee">62.50</span></h3>
+                        <p class="text-xs text-gray-400">Custo de manutenção da plataforma</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-green-200 shadow-sm bg-green-50/30">
+                        <p class="text-sm font-medium text-green-800 mb-1">Lucro Líquido</p>
+                        <h3 class="text-3xl font-bold text-[#2e6f40] mb-2">€<span id="stat-profit">1,187.50</span></h3>
+                        <p class="text-xs text-green-600 font-medium">O teu ganho real</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mt-6">
+                    <div class="p-5 border-b border-gray-100 flex justify-between items-center">
+                        <h3 class="font-bold text-gray-900">Encomendas Pendentes</h3>
+                        <span class="bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">2 Novas</span>
+                    </div>
+                    <div class="p-0">
+                        <div class="flex justify-between items-center p-4 border-b border-gray-50 hover:bg-gray-50 transition">
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">João Silva</p>
+                                <p class="text-xs text-gray-500">2x Tomate Coração de Boi, 1x Alface</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-sm text-[#2e6f40]">€12.50</p>
+                                <button class="text-xs text-blue-600 font-medium hover:underline mt-1">Ver detalhe</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 hover:bg-gray-50 transition">
+                            <div>
+                                <p class="font-bold text-sm text-gray-900">Restaurante "A Toca"</p>
+                                <p class="text-xs text-gray-500">10kg Batata, 5kg Cebola</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-bold text-sm text-[#2e6f40]">€45.00</p>
+                                <button class="text-xs text-blue-600 font-medium hover:underline mt-1">Ver detalhe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-produtos" class="tab-content space-y-6">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900 mb-1">Catálogo de Produtos</h1>
+                        <p class="text-sm text-gray-500">Gere o teu stock e adiciona novas colheitas.</p>
+                    </div>
+                    <button onclick="document.getElementById('add-product-form').classList.toggle('hidden')" class="bg-[#2e6f40] text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm hover:bg-green-800 transition">
+                        + Novo Produto
+                    </button>
+                </div>
+
+                <div id="add-product-form" class="hidden bg-white p-6 rounded-2xl border border-gray-200 shadow-sm mb-6">
+                    <h3 class="font-bold text-gray-900 mb-4">Adicionar ao Catálogo</h3>
+                    <form id="form-new-product" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="col-span-1 md:col-span-2">
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Nome do Produto</label>
+                            <input type="text" id="new-prod-name" required class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:border-[#2e6f40] outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Preço (€)</label>
+                            <input type="number" step="0.01" id="new-prod-price" required class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:border-[#2e6f40] outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Unidade</label>
+                            <select id="new-prod-unit" class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:border-[#2e6f40] outline-none bg-white">
+                                <option value="kg">Por kg</option>
+                                <option value="unidade">Por unidade</option>
+                                <option value="molho">Por molho</option>
+                                <option value="litro">Por litro</option>
+                            </select>
+                        </div>
+                        <div class="col-span-1 md:col-span-2 flex items-end">
+                            <button type="submit" class="w-full bg-gray-900 text-white font-bold py-2 rounded-lg hover:bg-black transition">Adicionar ao Stock</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                    <table class="w-full text-left text-sm text-gray-600">
+                        <thead class="bg-gray-50 border-b border-gray-100 text-gray-500 uppercase text-xs">
+                            <tr>
+                                <th class="p-4 font-bold">Produto</th>
+                                <th class="p-4 font-bold">Preço</th>
+                                <th class="p-4 font-bold">Unidade</th>
+                                <th class="p-4 font-bold text-right">Disponível (Stock)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body" class="divide-y divide-gray-50">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="tab-perfil" class="tab-content space-y-6">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900 mb-1">Perfil da Quinta</h1>
+                    <p class="text-sm text-gray-500">Como os consumidores vêm a tua página.</p>
+                </div>
+
+                <form id="form-farm-profile" class="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm space-y-6">
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nome da Quinta</label>
+                        <input type="text" id="farm-input-name" required class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:border-[#2e6f40] outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Endereço / Localização</label>
+                        <input type="text" id="farm-input-address" required class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:border-[#2e6f40] outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">URL da Fotografia de Capa</label>
+                        <input type="url" id="farm-input-image" placeholder="https://exemplo.com/foto.jpg" class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:border-[#2e6f40] outline-none">
+                        <p class="text-xs text-gray-400 mt-1">Cola aqui um link direto para uma imagem da tua quinta.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
+                        <textarea id="farm-input-desc" required class="w-full border border-gray-300 rounded-xl p-3 text-sm focus:border-[#2e6f40] outline-none h-32 resize-none" placeholder="Conta a história da tua produção..."></textarea>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100 flex justify-end">
+                        <button type="submit" id="save-profile-btn" class="bg-[#2e6f40] text-white px-8 py-3 rounded-xl font-bold shadow-sm hover:bg-green-800 transition">
+                            Guardar Alterações
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // --------------------------------------------------------
+        // 1. SISTEMA DE TABS (Navegação Interna)
+        // --------------------------------------------------------
+        function switchTab(tabId) {
+            // Esconde todos os conteúdos
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Tira a cor ativa de todos os botões
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active', 'bg-[#2e6f40]', 'text-white');
+                el.classList.add('text-gray-600');
+            });
+
+            // Mostra o conteúdo escolhido
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            
+            // Colore o botão escolhido
+            const activeBtn = document.getElementById(`btn-tab-${tabId}`);
+            activeBtn.classList.add('active', 'bg-[#2e6f40]', 'text-white');
+            activeBtn.classList.remove('text-gray-600');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --------------------------------------------------------
+            // 2. GESTÃO DE DADOS (LOCALSTORAGE)
+            // --------------------------------------------------------
+            
+            // Dados padrão simulando que o utilizador é o dono da "Quinta do Vale Verde"
+            const defaultFarmData = {
+                name: "Quinta do Vale Verde",
+                address: "Aveiro, Portugal",
+                image: "https://images.unsplash.com/photo-1595856342890-e575775c7424?auto=format&fit=crop&w=800&q=80",
+                description: "Cultivamos os melhores vegetais orgânicos da região de Aveiro. Sem pesticidas e colhidos na manhã em que são entregues.",
+                products: [
+                    { id: 1, name: "Alface Romana", price: 1.20, unit: "unidade", inStock: true },
+                    { id: 2, name: "Tomate Coração de Boi", price: 2.50, unit: "kg", inStock: true },
+                    { id: 3, name: "Cenouras Biológicas", price: 1.10, unit: "molho", inStock: false }
+                ]
+            };
+
+            // Carregar dados ou usar o padrão
+            let myFarm = JSON.parse(localStorage.getItem('mySellerFarm'));
+            if (!myFarm) {
+                myFarm = defaultFarmData;
+                localStorage.setItem('mySellerFarm', JSON.stringify(myFarm));
+            }
+
+
+            // --------------------------------------------------------
+            // 3. ATUALIZAR INTERFACE (DASHBOARD & PERFIL)
+            // --------------------------------------------------------
+            function updateUI() {
+                // Barra Lateral
+                document.getElementById('sidebar-farm-name').textContent = myFarm.name;
+                document.getElementById('farm-initial').textContent = myFarm.name.charAt(0).toUpperCase();
+
+                // Perfil Inputs
+                document.getElementById('farm-input-name').value = myFarm.name;
+                document.getElementById('farm-input-address').value = myFarm.address;
+                document.getElementById('farm-input-image').value = myFarm.image;
+                document.getElementById('farm-input-desc').value = myFarm.description;
+
+                // Rendimentos (Simulação fixa para o exemplo)
+                const vendas = 1250.00;
+                const taxa = vendas * 0.05; // 5% VeggieFresh
+                const lucro = vendas - taxa;
+                
+                document.getElementById('stat-sales').textContent = vendas.toFixed(2);
+                document.getElementById('stat-fee').textContent = taxa.toFixed(2);
+                document.getElementById('stat-profit').textContent = lucro.toFixed(2);
+
+                renderProductsTable();
+            }
+
+            // --------------------------------------------------------
+            // 4. LÓGICA DE PRODUTOS (STOCK E ADICIONAR)
+            // --------------------------------------------------------
+            const tableBody = document.getElementById('products-table-body');
+
+            function renderProductsTable() {
+                tableBody.innerHTML = '';
+                
+                if (myFarm.products.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="4" class="p-4 text-center text-gray-500">Nenhum produto no catálogo.</td></tr>';
+                    return;
+                }
+
+                myFarm.products.forEach((prod, index) => {
+                    const row = document.createElement('tr');
+                    row.className = "hover:bg-gray-50 transition";
+                    
+                    row.innerHTML = `
+                        <td class="p-4 font-bold text-gray-900">${prod.name}</td>
+                        <td class="p-4 font-medium text-[#2e6f40]">€${parseFloat(prod.price).toFixed(2)}</td>
+                        <td class="p-4">${prod.unit}</td>
+                        <td class="p-4 text-right">
+                            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                <input type="checkbox" name="toggle" id="toggle-${index}" ${prod.inStock ? 'checked' : ''} 
+                                    class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer transition-all duration-300 z-10" style="top: 2px; left: ${prod.inStock ? '20px' : '2px'}; border-color: ${prod.inStock ? '#2e6f40' : '#d1d5db'};"/>
+                                <label for="toggle-${index}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-300" style="background-color: ${prod.inStock ? '#2e6f40' : '#d1d5db'}"></label>
+                            </div>
+                            <span class="text-xs ${prod.inStock ? 'text-green-600' : 'text-gray-400'} font-bold w-16 inline-block text-left ml-2">${prod.inStock ? 'Em Stock' : 'Esgotado'}</span>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+
+                    // Adicionar evento ao Toggle
+                    const checkbox = row.querySelector(`#toggle-${index}`);
+                    checkbox.addEventListener('change', (e) => {
+                        myFarm.products[index].inStock = e.target.checked;
+                        localStorage.setItem('mySellerFarm', JSON.stringify(myFarm));
+                        renderProductsTable(); // Re-render para atualizar os textos e cores do toggle
+                    });
+                });
+            }
+
+            // Adicionar Novo Produto
+            document.getElementById('form-new-product').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const newProduct = {
+                    id: Date.now(),
+                    name: document.getElementById('new-prod-name').value,
+                    price: parseFloat(document.getElementById('new-prod-price').value),
+                    unit: document.getElementById('new-prod-unit').value,
+                    inStock: true
+                };
+
+                myFarm.products.push(newProduct);
+                localStorage.setItem('mySellerFarm', JSON.stringify(myFarm));
+                
+                // Limpar formulário e esconder
+                e.target.reset();
+                document.getElementById('add-product-form').classList.add('hidden');
+                
+                renderProductsTable();
+                alert('Produto adicionado ao catálogo com sucesso!');
+            });
+
+            // --------------------------------------------------------
+            // 5. GUARDAR ALTERAÇÕES DO PERFIL
+            // --------------------------------------------------------
+            document.getElementById('form-farm-profile').addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                myFarm.name = document.getElementById('farm-input-name').value;
+                myFarm.address = document.getElementById('farm-input-address').value;
+                myFarm.image = document.getElementById('farm-input-image').value;
+                myFarm.description = document.getElementById('farm-input-desc').value;
+
+                localStorage.setItem('mySellerFarm', JSON.stringify(myFarm));
+                
+                const btn = document.getElementById('save-profile-btn');
+                const originalText = btn.textContent;
+                btn.textContent = "✅ Guardado!";
+                btn.classList.add('bg-green-600');
+                
+                updateUI();
+
+                setTimeout(() => {
+                    btn.textContent = "Guardar Alterações";
+                    btn.classList.remove('bg-green-600');
+                }, 2000);
+            });
+
+            // Iniciar a página
+            updateUI();
+        });
+    </script>
+</body>
+</html>
