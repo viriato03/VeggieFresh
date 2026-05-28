@@ -9,7 +9,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        /* Deslize Suave Ativado */
         html { scroll-behavior: smooth; }
         
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; }
@@ -42,7 +41,6 @@
             Find Near Me
         </a>
         
-        <!-- Botão Vendedor transformado em link -->
         <a href="vendedor.html" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</a>
         
         <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
@@ -88,55 +86,6 @@
         </div>
     </section>
 
-    <!-- BANNER DE DESTAQUE -->
-    <section class="bg-brand text-white py-6">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-green-700/50">
-            <div class="flex flex-col items-center">
-                <span class="text-2xl mb-1">🌱</span>
-                <span class="text-sm font-medium">Local Farmers</span>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-2xl mb-1">🛒</span>
-                <span class="text-sm font-medium">Fresh Produce</span>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-2xl mb-1">🤝</span>
-                <span class="text-sm font-medium">Community Driven</span>
-            </div>
-            <div class="flex flex-col items-center">
-                <span class="text-2xl mb-1">⭐</span>
-                <span class="text-sm font-medium">Quality Verified</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- CATEGORIAS -->
-    <section class="py-20 px-6 max-w-7xl mx-auto text-center">
-        <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Explore By Category</p>
-        <h2 class="text-3xl font-bold text-gray-900 mb-10">What are you looking for?</h2>
-        
-        <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
-                <span class="text-3xl">🥦</span><span class="text-xs font-bold text-gray-700">Vegetables</span>
-            </div>
-            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
-                <span class="text-3xl">🍅</span><span class="text-xs font-bold text-gray-700">Fruits</span>
-            </div>
-            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
-                <span class="text-3xl">🥛</span><span class="text-xs font-bold text-gray-700">Dairy</span>
-            </div>
-            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
-                <span class="text-3xl">🥚</span><span class="text-xs font-bold text-gray-700">Eggs</span>
-            </div>
-            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
-                <span class="text-3xl">🍯</span><span class="text-xs font-bold text-gray-700">Honey</span>
-            </div>
-            <div class="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center gap-2 cursor-pointer hover:shadow-md hover:-translate-y-1 transition min-w-[100px]">
-                <span class="text-3xl">🌿</span><span class="text-xs font-bold text-gray-700">Herbs</span>
-            </div>
-        </div>
-    </section>
-
     <!-- QUINTAS EM DESTAQUE -->
     <section class="py-12 px-6 max-w-7xl mx-auto">
         <div class="flex justify-between items-end mb-8">
@@ -148,8 +97,10 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- CARD 1 -->
             <a href="produtor.html?id=vale-verde" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
-                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1595856342890-e575775c7424')] bg-cover bg-center relative">
+                <div class="h-56 bg-[url('./images/farm02.jpg')] bg-cover bg-center relative">
                     <div class="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
                     <div class="absolute bottom-4 left-4 flex gap-2">
                         <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Vegetables</span>
@@ -170,8 +121,9 @@
                 </div>
             </a>
 
+            <!-- CARD 2 -->
             <a href="produtor.html?id=alvorecer" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
-                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1500595046743-cd271d694d30')] bg-cover bg-center relative">
+                <div class="h-56 bg-[url('./images/FunCow.jpeg')] bg-cover bg-center relative">
                     <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">Verified</div>
                     <div class="absolute top-4 right-4 bg-white/90 text-gray-800 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">⭐ Featured</div>
                     <div class="absolute bottom-4 left-4 flex gap-2">
@@ -193,8 +145,9 @@
                 </div>
             </a>
 
+            <!-- CARD 3 -->
             <a href="produtor.html?id=solar-abelhas" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
-                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1587049352847-81a56d773c1c')] bg-cover bg-center relative">
+                <div class="h-56 bg-[url('./images/bees.jpg')] bg-cover bg-center relative">
                     <div class="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">Organic</div>
                     <div class="absolute bottom-4 left-4 flex gap-2">
                         <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Honey</span>
@@ -217,7 +170,7 @@
         </div>
     </section>
 
-    <!-- COMO FUNCIONA (Com ID e Scroll-Margin adicionados) -->
+    <!-- COMO FUNCIONA -->
     <section id="how-it-works" class="scroll-mt-24 py-20 bg-[#f4f3f0] border-y border-gray-200 mt-10">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Simple Process</p>
@@ -254,7 +207,7 @@
         </div>
     </section>
 
-    <!-- SOBRE NÓS (Com ID e Scroll-Margin adicionados) -->
+    <!-- SOBRE NÓS -->
     <section id="about" class="scroll-mt-24 py-20 px-6 max-w-7xl mx-auto text-center">
         <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Community Stories</p>
         <h2 class="text-3xl font-bold text-gray-900 mb-12">What People Are Saying</h2>
@@ -320,7 +273,6 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div class="col-span-1 md:col-span-1">
                 <a href="#" class="flex items-center gap-2 mb-4">
-                    <!-- Caminho corrigido -->
                     <span class="font-bold text-xl">Veggie<span class="text-green-400">Fresh</span></span>
                 </a>
                 <p class="text-sm text-gray-400 mb-6 leading-relaxed">Connecting local farmers with consumers who care about where their food comes from.</p>
@@ -361,11 +313,9 @@
         </div>
     </footer>
 
-    <!-- OVERLAY DO CARRINHO (Com as 3 Vistas: Carrinho, Checkout, Sucesso) -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
         <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
             
-            <!-- Cabeçalho -->
             <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
                 <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">🛒 O Meu Carrinho</h2>
                 <button id="close-cart" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
@@ -454,10 +404,8 @@
         </div>
     </div>
 
-    <!-- SCRIPT DO CARRINHO E PERFIL -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. ATUALIZAR A LETRA DO PERFIL NA NAVBAR
             const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
             if (savedProfile && savedProfile.name) {
                 const navInitial = document.getElementById('user-initial');
@@ -466,7 +414,6 @@
                 }
             }
 
-            // 2. LÓGICA DO CARRINHO E INTERFACE
             const cartOverlay = document.getElementById('cart-overlay');
             const cartSidebar = document.getElementById('cart-sidebar');
             const btnOpenCart = document.getElementById('cart-button');
@@ -532,7 +479,6 @@
                 });
             }
 
-            // 3. NAVEGAÇÃO DO CHECKOUT
             const cartView = document.getElementById('cart-view');
             const checkoutView = document.getElementById('checkout-view');
             const successView = document.getElementById('success-view');

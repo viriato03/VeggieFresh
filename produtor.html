@@ -39,7 +39,6 @@
             Find Near Me
         </a>
         
-        <!-- Botão Vendedor transformado em link -->
         <a href="vendedor.html" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</a>
         
         <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
@@ -137,17 +136,14 @@
         </div>
     </main>
 
-    <!-- OVERLAY DO CARRINHO -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
         <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
             
-            <!-- Cabeçalho -->
             <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
                 <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">🛒 O Meu Carrinho</h2>
                 <button id="close-cart" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
             </div>
             
-            <!-- VISTA 1: Itens do Carrinho -->
             <div id="cart-view" class="flex flex-col flex-1 overflow-hidden">
                 <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3">
                     <p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio.</p>
@@ -167,7 +163,6 @@
                 </div>
             </div>
 
-            <!-- VISTA 2: Formulário de Recolha -->
             <div id="checkout-view" class="hidden flex-col flex-1 overflow-hidden bg-gray-50">
                 <div class="p-5 flex-1 overflow-y-auto">
                     <button id="back-to-cart" class="text-sm text-[#2e6f40] font-medium mb-6 flex items-center gap-1 hover:underline">
@@ -215,7 +210,6 @@
                 </div>
             </div>
 
-            <!-- VISTA 3: Sucesso -->
             <div id="success-view" class="hidden flex-col flex-1 justify-center items-center p-8 text-center bg-white">
                 <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-4xl mb-6 shadow-sm">
                     ✅
@@ -231,18 +225,13 @@
     </div>
 
     <script>
-        // --- 1. LÓGICA DINÂMICA DA PÁGINA ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Extrair o ID do URL (ex: ?id=vale-verde)
             const urlParams = new URLSearchParams(window.location.search);
-            // Se não houver id no link, usamos 'alvorecer' por defeito
             const farmId = urlParams.get('id') || 'alvorecer'; 
             
-            // Procurar a quinta na nossa variável farmsData (criada no data.js)
             const farm = farmsData.find(f => f.id === farmId);
 
             if (farm) {
-                // Atualizar os textos da página
                 document.title = `${farm.name} - VeggieFresh`;
                 document.getElementById('breadcrumb-name').textContent = farm.name;
                 document.getElementById('farm-name').textContent = farm.name;
@@ -254,16 +243,13 @@
                 document.getElementById('farm-description').textContent = farm.description;
                 document.getElementById('farm-email').textContent = `info@${farm.id}.pt`;
                 
-                // Atualizar a imagem
                 document.getElementById('farm-image').style.backgroundImage = `url('${farm.image}')`;
 
-                // Atualizar Tags
                 const tagsContainer = document.getElementById('farm-tags');
                 tagsContainer.innerHTML = farm.tags.map(tag => 
                     `<span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">${tag}</span>`
                 ).join('');
 
-                // Renderizar Produtos Dinamicamente
                 const productsContainer = document.getElementById('products-container');
                 productsContainer.innerHTML = farm.products.map(product => {
                     if (product.inStock) {
@@ -286,7 +272,6 @@
                     }
                 }).join('');
 
-                // Agora que os botões foram criados, ligamos a função do carrinho a eles!
                 attachCartListeners();
             } else {
                 document.getElementById('farm-name').textContent = "Produtor não encontrado";
@@ -294,7 +279,6 @@
         });
 
 
-        // --- 2. LÓGICA DO CARRINHO (Mantida igual, mas ativada dinamicamente) ---
         const cartOverlay = document.getElementById('cart-overlay');
         const cartSidebar = document.getElementById('cart-sidebar');
         const btnOpenCart = document.getElementById('cart-button');
@@ -352,7 +336,6 @@
         cartOverlay.addEventListener('click', (e) => { if (e.target === cartOverlay) closeCart(); });
         btnClearCart.addEventListener('click', () => { localStorage.removeItem('veggieCart'); updateCartUI(); });
 
-        // Nova função para associar o clique de adicionar ao carrinho aos botões dinâmicos
         function attachCartListeners() {
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
                 button.addEventListener('click', function() {
@@ -378,7 +361,6 @@
             });
         }
 
-        // --- NAVEGAÇÃO DO CHECKOUT ---
         const cartView = document.getElementById('cart-view');
         const checkoutView = document.getElementById('checkout-view');
         const successView = document.getElementById('success-view');
@@ -388,7 +370,6 @@
         const btnConfirmOrder = document.getElementById('confirm-order-btn');
         const btnCloseSuccess = document.getElementById('close-success-btn');
 
-        // Ir para o formulário de Checkout
         if (btnCheckout) {
             btnCheckout.addEventListener('click', () => {
                 const cart = getCart();
@@ -403,7 +384,6 @@
             });
         }
 
-        // Voltar ao Carrinho
         if (btnBackToCart) {
             btnBackToCart.addEventListener('click', () => {
                 checkoutView.classList.add('hidden');
@@ -413,22 +393,18 @@
             });
         }
 
-        // Confirmar a Encomenda
         if (btnConfirmOrder) {
             btnConfirmOrder.addEventListener('click', () => {
                 const pickupTime = document.getElementById('pickup-time').value;
                 
-                // Validação simples: exigir que escolha a data
                 if (!pickupTime) {
                     alert('Por favor, indica o dia e a hora para a recolha.');
                     return;
                 }
                 
-                // Se tudo estiver bem, limpa o carrinho
                 localStorage.removeItem('veggieCart');
                 updateCartUI();
                 
-                // Esconde Checkout, Mostra Sucesso
                 checkoutView.classList.add('hidden');
                 checkoutView.classList.remove('flex');
                 successView.classList.remove('hidden');
@@ -436,25 +412,21 @@
             });
         }
 
-        // Fechar e Resetar vistas após sucesso
         if (btnCloseSuccess) {
             btnCloseSuccess.addEventListener('click', () => {
                 closeCart();
                 
-                // Volta a colocar o carrinho na vista 1 após fechar a aba lateral
                 setTimeout(() => {
                     successView.classList.add('hidden');
                     successView.classList.remove('flex');
                     cartView.classList.remove('hidden');
                     cartView.classList.add('flex');
                     
-                    // Limpar a data preenchida
                     document.getElementById('pickup-time').value = '';
                 }, 300);
             });
         }
 
-        // ATUALIZAR A LETRA DO PERFIL EM TODAS AS PÁGINAS
         const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
         if (savedProfile && savedProfile.name) {
             const navInitial = document.getElementById('user-initial');

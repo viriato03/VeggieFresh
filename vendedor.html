@@ -214,33 +214,24 @@
     </main>
 
     <script>
-        // --------------------------------------------------------
-        // 1. SISTEMA DE TABS (Navegação Interna)
-        // --------------------------------------------------------
+        // 1. SISTEMA DE TABS 
         function switchTab(tabId) {
-            // Esconde todos os conteúdos
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            // Tira a cor ativa de todos os botões
             document.querySelectorAll('.tab-btn').forEach(el => {
                 el.classList.remove('active', 'bg-[#2e6f40]', 'text-white');
                 el.classList.add('text-gray-600');
             });
 
-            // Mostra o conteúdo escolhido
             document.getElementById(`tab-${tabId}`).classList.add('active');
             
-            // Colore o botão escolhido
             const activeBtn = document.getElementById(`btn-tab-${tabId}`);
             activeBtn.classList.add('active', 'bg-[#2e6f40]', 'text-white');
             activeBtn.classList.remove('text-gray-600');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // --------------------------------------------------------
-            // 2. GESTÃO DE DADOS (LOCALSTORAGE)
-            // --------------------------------------------------------
+            // 2. GESTÃO DE DADOS 
             
-            // Dados padrão simulando que o utilizador é o dono da "Quinta do Vale Verde"
             const defaultFarmData = {
                 name: "Quinta do Vale Verde",
                 address: "Aveiro, Portugal",
@@ -253,7 +244,6 @@
                 ]
             };
 
-            // Carregar dados ou usar o padrão
             let myFarm = JSON.parse(localStorage.getItem('mySellerFarm'));
             if (!myFarm) {
                 myFarm = defaultFarmData;
@@ -261,23 +251,17 @@
             }
 
 
-            // --------------------------------------------------------
-            // 3. ATUALIZAR INTERFACE (DASHBOARD & PERFIL)
-            // --------------------------------------------------------
             function updateUI() {
-                // Barra Lateral
                 document.getElementById('sidebar-farm-name').textContent = myFarm.name;
                 document.getElementById('farm-initial').textContent = myFarm.name.charAt(0).toUpperCase();
 
-                // Perfil Inputs
                 document.getElementById('farm-input-name').value = myFarm.name;
                 document.getElementById('farm-input-address').value = myFarm.address;
                 document.getElementById('farm-input-image').value = myFarm.image;
                 document.getElementById('farm-input-desc').value = myFarm.description;
 
-                // Rendimentos (Simulação fixa para o exemplo)
                 const vendas = 1250.00;
-                const taxa = vendas * 0.05; // 5% VeggieFresh
+                const taxa = vendas * 0.05; // 5%  Taxa VeggieFresh
                 const lucro = vendas - taxa;
                 
                 document.getElementById('stat-sales').textContent = vendas.toFixed(2);
@@ -287,9 +271,6 @@
                 renderProductsTable();
             }
 
-            // --------------------------------------------------------
-            // 4. LÓGICA DE PRODUTOS (STOCK E ADICIONAR)
-            // --------------------------------------------------------
             const tableBody = document.getElementById('products-table-body');
 
             function renderProductsTable() {
@@ -319,17 +300,15 @@
                     `;
                     tableBody.appendChild(row);
 
-                    // Adicionar evento ao Toggle
                     const checkbox = row.querySelector(`#toggle-${index}`);
                     checkbox.addEventListener('change', (e) => {
                         myFarm.products[index].inStock = e.target.checked;
                         localStorage.setItem('mySellerFarm', JSON.stringify(myFarm));
-                        renderProductsTable(); // Re-render para atualizar os textos e cores do toggle
+                        renderProductsTable(); 
                     });
                 });
             }
 
-            // Adicionar Novo Produto
             document.getElementById('form-new-product').addEventListener('submit', (e) => {
                 e.preventDefault();
                 
@@ -344,7 +323,6 @@
                 myFarm.products.push(newProduct);
                 localStorage.setItem('mySellerFarm', JSON.stringify(myFarm));
                 
-                // Limpar formulário e esconder
                 e.target.reset();
                 document.getElementById('add-product-form').classList.add('hidden');
                 
@@ -352,9 +330,6 @@
                 alert('Produto adicionado ao catálogo com sucesso!');
             });
 
-            // --------------------------------------------------------
-            // 5. GUARDAR ALTERAÇÕES DO PERFIL
-            // --------------------------------------------------------
             document.getElementById('form-farm-profile').addEventListener('submit', (e) => {
                 e.preventDefault();
                 
@@ -378,7 +353,6 @@
                 }, 2000);
             });
 
-            // Iniciar a página
             updateUI();
         });
     </script>

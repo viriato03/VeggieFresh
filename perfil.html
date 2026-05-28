@@ -12,7 +12,6 @@
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; }
         .text-brand { color: #2e6f40; }
         .bg-brand { background-color: #2e6f40; }
-        /* Esconder a barra de scroll nas tabs para mobile */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -39,7 +38,6 @@
             Find Near Me
         </a>
         
-        <!-- Botão Vendedor transformado em link -->
         <a href="vendedor.html" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</a>
         
         <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
@@ -359,7 +357,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ELEMENTOS DA UI
             const displayName = document.getElementById('display-name');
             const displayLocation = document.getElementById('display-location');
             const navInitial = document.getElementById('user-initial');
@@ -371,7 +368,6 @@
             const infoLocation = document.getElementById('info-location');
             const infoBio = document.getElementById('info-bio');
 
-            // ELEMENTOS DO MODAL
             const editModal = document.getElementById('edit-modal');
             const btnOpenEdit = document.getElementById('btn-open-edit');
             const btnCloseModal = document.getElementById('close-modal-btn');
@@ -384,7 +380,6 @@
             const inputLocation = document.getElementById('input-location');
             const inputBio = document.getElementById('input-bio');
 
-            // 1. DADOS DEFEITO E LOCALSTORAGE
             const defaultProfile = {
                 name: 'Lorem Ipsum',
                 email: 'lorem.ipsum@email.pt',
@@ -399,7 +394,6 @@
                 localStorage.setItem('veggieProfile', JSON.stringify(defaultProfile));
             }
 
-            // 2. ATUALIZAR A INTERFACE (READ-ONLY)
             function populateUI(profile) {
                 displayName.textContent = profile.name;
                 displayLocation.textContent = profile.location;
@@ -415,7 +409,6 @@
                 if (avatarLarge) avatarLarge.textContent = firstLetter;
             }
 
-            // 3. PREENCHER O FORMULÁRIO QUANDO O MODAL ABRE
             function populateForm(profile) {
                 inputName.value = profile.name;
                 inputEmail.value = profile.email;
@@ -424,7 +417,6 @@
                 inputBio.value = profile.bio;
             }
 
-            // Lógica do Modal
             function openModal() {
                 const currentProfile = JSON.parse(localStorage.getItem('veggieProfile'));
                 populateForm(currentProfile);
@@ -441,12 +433,10 @@
             btnCloseModal.addEventListener('click', closeModal);
             btnCancelEdit.addEventListener('click', closeModal);
 
-            // Fechar modal ao clicar fora
             editModal.addEventListener('click', (e) => {
                 if (e.target === editModal) closeModal();
             });
 
-            // 4. GUARDAR ALTERAÇÕES NO FORMULÁRIO
             profileForm.addEventListener('submit', (e) => {
                 e.preventDefault();
 
@@ -463,10 +453,8 @@
                 closeModal();
             });
 
-            // Executa no arranque
             populateUI(savedProfile);
             
-            // --- CÓDIGO DO CONTADOR DO CARRINHO (Para manter o nº da navbar sincronizado nesta página) ---
             function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
             const cart = getCart();
             const cartCount = document.getElementById('cart-count');

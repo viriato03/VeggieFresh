@@ -42,7 +42,6 @@
             Find Near Me
         </a>
         
-        <!-- Botão Vendedor transformado em link -->
         <a href="vendedor.html" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</a>
         
         <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
@@ -375,7 +374,6 @@
             { id: 'pomar-douro', name: 'Pomar do Douro', category: 'Fruits', coords: [40.5500, -8.5800] }
         ];
 
-        // Criar marcadores e ligar aos elementos DOM da sidebar
         const farmObjects = farmsData.map(farm => {
             const marker = L.marker(farm.coords, {icon: farmIcon}).bindPopup(`<b>${farm.name}</b>`);
             marker.addTo(map);
@@ -383,7 +381,6 @@
             return { ...farm, marker, domElement };
         });
 
-        // --- LÓGICA DE PESQUISA E FILTROS ---
         const searchInput = document.getElementById('search-input');
         const btnFilters = document.getElementById('btn-filters');
         const filtersDropdown = document.getElementById('filters-dropdown');
@@ -395,7 +392,6 @@
             filtersDropdown.classList.toggle('hidden');
         });
 
-        // Fechar o dropdown de filtros ao clicar fora dele
         document.addEventListener('click', (e) => {
             if (!filtersDropdown.contains(e.target) && !btnFilters.contains(e.target)) {
                 filtersDropdown.classList.add('hidden');
@@ -428,7 +424,6 @@
         searchInput.addEventListener('input', applyFilters);
         checkboxes.forEach(cb => cb.addEventListener('change', applyFilters));
 
-        // --- LÓGICA DE VISUALIZAÇÃO (LIST / SPLIT / MAP) ---
         const btnList = document.getElementById('btn-list');
         const btnSplit = document.getElementById('btn-split');
         const btnMap = document.getElementById('btn-map');
@@ -467,7 +462,6 @@
             setTimeout(() => { map.invalidateSize(); }, 100);
         });
 
-        // --- LÓGICA DO CARRINHO ---
         const cartOverlay = document.getElementById('cart-overlay');
         const cartSidebar = document.getElementById('cart-sidebar');
         const btnOpenCart = document.getElementById('cart-button');
@@ -535,7 +529,6 @@
             updateCartUI();
         });
 
-        // --- NAVEGAÇÃO DO CHECKOUT ---
         const cartView = document.getElementById('cart-view');
         const checkoutView = document.getElementById('checkout-view');
         const successView = document.getElementById('success-view');
@@ -597,7 +590,6 @@
             });
         }
 
-        // Lógica Global - Inicial da Navbar
         const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
         if (savedProfile && savedProfile.name) {
             const navInitial = document.getElementById('user-initial');
