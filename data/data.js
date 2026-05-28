@@ -24,7 +24,7 @@ const farmsData = [
         reviews: 124,
         distance: "2.3 miles",
         address: "Rua das Flores, Aveiro",
-        image: "https://images.unsplash.com/photo-1595856342890-e575775c7424?q=80&w=1200&auto=format&fit=crop",
+        image: "./images/farm02.jpg",
         description: "Cultivamos os melhores vegetais orgânicos da região de Aveiro. Sem pesticidas e colhidos na manhã em que são entregues.",
         tags: ["Vegetables", "Organic"],
         products: [
@@ -75,7 +75,7 @@ const farmsData = [
         reviews: 210,
         distance: "6.8 miles",
         address: "Lugar da Serra, Albergaria-a-Velha",
-        image: "https://images.unsplash.com/photo-1587049352847-81a56d773c1c?q=80&w=1200&auto=format&fit=crop",
+        image: "./images/bees.jpg",
         description: "Mel 100% puro e cru, extraído a frio para preservar todos os nutrientes e enzimas naturais. Tratamos as nossas abelhas como família.",
         tags: ["Honey", "Raw"],
         products: [

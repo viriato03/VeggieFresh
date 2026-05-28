@@ -105,7 +105,7 @@
                 
                 <a href="produtor.html?id=vale-verde" class="block group">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
-                        <img src="https://images.unsplash.com/photo-1595856342890-e575775c7424?w=150&h=150&fit=crop" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
+                        <img src="./images/farm02.jpg" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
                             <div class="flex justify-between items-start">
                                 <h3 class="font-bold text-gray-900 group-hover:text-green-700 transition">Quinta do Vale Verde</h3>
@@ -185,7 +185,7 @@
 
                 <a href="produtor.html?id=solar-abelhas" class="block group">
                     <div class="flex gap-4 p-5 hover:bg-gray-50 border-b border-gray-100 transition">
-                        <img src="https://images.unsplash.com/photo-1587049352847-81a56d773c1c?w=150&h=150&fit=crop" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
+                        <img src="./images/bees.jpg" class="w-20 h-20 rounded-xl object-cover border border-gray-200" alt="Farm">
                         <div class="flex-1">
                             <div class="flex justify-between items-start">
                                 <h3 class="font-bold text-gray-900 group-hover:text-green-700 transition">Solar das Abelhas</h3>
@@ -535,14 +535,7 @@
             });
         }
 
-        // ATUALIZAR A LETRA DO PERFIL EM TODAS AS PÁGINAS
-        const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
-        if (savedProfile && savedProfile.name) {
-            const navInitial = document.getElementById('user-initial');
-            if (navInitial) {
-                navInitial.textContent = savedProfile.name.charAt(0).toUpperCase();
-            }
-        }
+        
 
         document.addEventListener('DOMContentLoaded', updateCartUI);
     </script>

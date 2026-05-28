@@ -9,6 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
+        /* Deslize Suave Ativado */
+        html { scroll-behavior: smooth; }
+        
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f9fafb; }
         .text-brand { color: #2e6f40; }
         .bg-brand { background-color: #2e6f40; }
@@ -18,10 +21,11 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- NAVBAR ATUALIZADA -->
+    <!-- NAVBAR -->
     <header class="bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4 sticky top-0 z-50">
         <a href="index.html" class="flex items-center gap-3">
-            <img src="./images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
+            <!-- Caminho corrigido -->
+            <img src="images/logo.png" alt="Logo VeggieFresh" class="w-10 h-10 object-contain">
             <span class="font-bold text-2xl tracking-tight">
                 <span class="text-gray-900">Veggie</span><span class="text-green-700">Fresh</span>
             </span>
@@ -29,8 +33,9 @@
         
         <nav class="hidden lg:flex gap-8 text-gray-600 font-medium">
             <a href="descobrir.html" class="hover:text-green-700 transition">Find Farmers</a>
-            <a href="index.html#how-it-works" class="hover:text-green-700 transition">How It Works</a>
-            <a href="index.html#about" class="hover:text-green-700 transition">About</a>
+            <!-- Links com âncoras para deslizar na página -->
+            <a href="#how-it-works" class="hover:text-green-700 transition">How It Works</a>
+            <a href="#about" class="hover:text-green-700 transition">About</a>
         </nav>
         
         <div class="flex items-center gap-3">
@@ -42,6 +47,7 @@
             <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Admin</button>
             <button class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-medium flex items-center gap-2 hover:bg-gray-50 transition hidden md:flex">Vendedor</button>
             
+            <!-- Ícone do Carrinho -->
             <div id="cart-button" class="relative cursor-pointer ml-2 p-2 text-gray-600 hover:text-green-700 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -49,12 +55,14 @@
                 <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">0</span>
             </div>
 
+            <!-- Ícone do Perfil -->
             <a href="perfil.html" class="relative cursor-pointer ml-2 hover:opacity-80 transition" title="Perfil">
-                <div id="user-initial" class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
+                <div id="user-initial" class="w-10 h-10 bg-[#2e6f40] text-white rounded-full flex items-center justify-center font-bold text-lg">L</div>
             </a>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="relative h-[600px] flex items-center justify-center text-center">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500076656116-558758c991c1?q=80&w=2000')] bg-cover bg-center"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
@@ -84,6 +92,7 @@
         </div>
     </section>
 
+    <!-- BANNER DE DESTAQUE -->
     <section class="bg-brand text-white py-6">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-green-700/50">
             <div class="flex flex-col items-center">
@@ -105,6 +114,7 @@
         </div>
     </section>
 
+    <!-- CATEGORIAS -->
     <section class="py-20 px-6 max-w-7xl mx-auto text-center">
         <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Explore By Category</p>
         <h2 class="text-3xl font-bold text-gray-900 mb-10">What are you looking for?</h2>
@@ -131,6 +141,7 @@
         </div>
     </section>
 
+    <!-- QUINTAS EM DESTAQUE -->
     <section class="py-12 px-6 max-w-7xl mx-auto">
         <div class="flex justify-between items-end mb-8">
             <div>
@@ -141,23 +152,23 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <a href="produtor.html?id=quinta-verde" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
+            <a href="produtor.html?id=vale-verde" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
                 <div class="h-56 bg-[url('https://images.unsplash.com/photo-1595856342890-e575775c7424')] bg-cover bg-center relative">
                     <div class="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">New</div>
                     <div class="absolute bottom-4 left-4 flex gap-2">
                         <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Vegetables</span>
-                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Fruits</span>
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Organic</span>
                     </div>
                 </div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Quinta do Convento</h3>
+                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Quinta do Vale Verde</h3>
                         <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 4.8</span>
                     </div>
-                    <p class="text-gray-500 text-xs mb-4">By Carlos Silva - Est. 2010</p>
-                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Especialistas em produtos da época, cultivados de forma sustentável e sem pesticidas químicos na região centro.</p>
+                    <p class="text-gray-500 text-xs mb-4">By João Santos - Est. 2015</p>
+                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Cultivamos os melhores vegetais orgânicos da região de Aveiro. Sem pesticidas e colhidos na manhã em que são entregues.</p>
                     <div class="flex justify-between items-center text-xs font-medium text-gray-500 pt-4 border-t border-gray-100">
-                        <span class="flex items-center gap-1">📍 5.2 miles</span>
+                        <span class="flex items-center gap-1">📍 2.3 miles</span>
                         <span class="text-brand">View Profile →</span>
                     </div>
                 </div>
@@ -177,8 +188,8 @@
                         <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Herdade do Alvorecer</h3>
                         <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 4.6</span>
                     </div>
-                    <p class="text-gray-500 text-xs mb-4">By Aolpiscing Elit - Est. 1975</p>
-                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Consectetur adipiscing elit, sed do eiusmod tempor. Ut enim ad minim veniam quis nostrud exercitation.</p>
+                    <p class="text-gray-500 text-xs mb-4">By Família Alvorecer - Est. 1975</p>
+                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Especialistas em laticínios biológicos e ovos de galinhas criadas ao ar livre. Produção 100% sustentável.</p>
                     <div class="flex justify-between items-center text-xs font-medium text-gray-500 pt-4 border-t border-gray-100">
                         <span class="flex items-center gap-1">📍 4.1 miles</span>
                         <span class="text-brand">View Profile →</span>
@@ -186,23 +197,23 @@
                 </div>
             </a>
 
-            <a href="produtor.html?id=valedoave" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
-                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1596162954151-cdcb927f4b39')] bg-cover bg-center relative">
+            <a href="produtor.html?id=solar-abelhas" class="block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition group">
+                <div class="h-56 bg-[url('https://images.unsplash.com/photo-1587049352847-81a56d773c1c')] bg-cover bg-center relative">
                     <div class="absolute top-4 left-4 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">Organic</div>
                     <div class="absolute bottom-4 left-4 flex gap-2">
                         <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Honey</span>
-                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Herbs</span>
+                        <span class="bg-white text-gray-800 text-xs font-bold px-3 py-1 rounded-full">Raw</span>
                     </div>
                 </div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Vale do Ave Mel</h3>
-                        <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 5.0</span>
+                        <h3 class="font-bold text-xl text-gray-900 group-hover:text-brand transition">Solar das Abelhas</h3>
+                        <span class="text-yellow-500 font-bold text-sm flex items-center gap-1">⭐ 4.9</span>
                     </div>
-                    <p class="text-gray-500 text-xs mb-4">By Familia Martins</p>
-                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Mel multiflora e plantas aromáticas de produção biológica certificada, colhidas nas encostas do vale.</p>
+                    <p class="text-gray-500 text-xs mb-4">By Rui e Ana Costa - Est. 2010</p>
+                    <p class="text-sm text-gray-600 line-clamp-2 mb-4">Mel 100% puro e cru, extraído a frio para preservar todos os nutrientes e enzimas naturais.</p>
                     <div class="flex justify-between items-center text-xs font-medium text-gray-500 pt-4 border-t border-gray-100">
-                        <span class="flex items-center gap-1">📍 12.3 miles</span>
+                        <span class="flex items-center gap-1">📍 6.8 miles</span>
                         <span class="text-brand">View Profile →</span>
                     </div>
                 </div>
@@ -210,7 +221,8 @@
         </div>
     </section>
 
-    <section class="py-20 bg-[#f4f3f0] border-y border-gray-200 mt-10">
+    <!-- COMO FUNCIONA (Com ID e Scroll-Margin adicionados) -->
+    <section id="how-it-works" class="scroll-mt-24 py-20 bg-[#f4f3f0] border-y border-gray-200 mt-10">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Simple Process</p>
             <h2 class="text-3xl font-bold text-gray-900 mb-4">How VeggieFresh Works</h2>
@@ -241,18 +253,17 @@
             </div>
             
             <div class="mt-12">
-                <a href="descobrir.html" class="inline-block bg-brand text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition shadow-sm">Start Exploring Now →</a>
+                <a href="descobrir.html" class="inline-block bg-[#2e6f40] text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition shadow-sm">Start Exploring Now →</a>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Community Stories</p>
-            <h2 class="text-3xl font-bold text-gray-900">What People Are Saying</h2>
-        </div>
+    <!-- SOBRE NÓS (Com ID e Scroll-Margin adicionados) -->
+    <section id="about" class="scroll-mt-24 py-20 px-6 max-w-7xl mx-auto text-center">
+        <p class="text-brand font-bold text-sm uppercase tracking-wider mb-2">Community Stories</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-12">What People Are Saying</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
                 <div class="text-yellow-400 mb-4 text-lg">★★★★★</div>
                 <p class="text-gray-600 text-sm leading-relaxed mb-6">"VeggieFresh completely changed how I buy my groceries. I found amazing local farms right in my town that I never knew existed. The quality is unmatched!"</p>
@@ -291,6 +302,7 @@
         </div>
     </section>
 
+    <!-- CALL TO ACTION -->
     <section class="max-w-7xl mx-auto px-6 mb-20">
         <div class="bg-brand-dark rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854')] bg-cover bg-center opacity-10"></div>
@@ -307,27 +319,23 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-brand-dark text-white pt-16 pb-8 border-t border-green-900">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div class="col-span-1 md:col-span-1">
                 <a href="#" class="flex items-center gap-2 mb-4">
+                    <!-- Caminho corrigido -->
+                    <img src="images/logo.png" alt="Logo" class="w-8 h-8 object-contain brightness-0 invert">
                     <span class="font-bold text-xl">Veggie<span class="text-green-400">Fresh</span></span>
                 </a>
                 <p class="text-sm text-gray-400 mb-6 leading-relaxed">Connecting local farmers with consumers who care about where their food comes from.</p>
-                <div class="flex gap-3">
-                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-brand transition">in</div>
-                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-brand transition">tw</div>
-                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-brand transition">fb</div>
-                </div>
             </div>
             
             <div>
                 <h4 class="font-bold text-lg mb-4 text-white">Explore</h4>
                 <ul class="space-y-3 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-green-400 transition">Find Farmers</a></li>
+                    <li><a href="descobrir.html" class="hover:text-green-400 transition">Find Farmers</a></li>
                     <li><a href="#" class="hover:text-green-400 transition">Browse Categories</a></li>
-                    <li><a href="#" class="hover:text-green-400 transition">Seasonal Picks</a></li>
-                    <li><a href="#" class="hover:text-green-400 transition">Farmers Markets</a></li>
                 </ul>
             </div>
             
@@ -336,17 +344,15 @@
                 <ul class="space-y-3 text-sm text-gray-400">
                     <li><a href="#" class="hover:text-green-400 transition">List Your Farm</a></li>
                     <li><a href="#" class="hover:text-green-400 transition">Farmer Dashboard</a></li>
-                    <li><a href="#" class="hover:text-green-400 transition">Success Stories</a></li>
-                    <li><a href="#" class="hover:text-green-400 transition">Resources</a></li>
                 </ul>
             </div>
             
             <div>
                 <h4 class="font-bold text-lg mb-4 text-white">Stay in Season</h4>
-                <p class="text-sm text-gray-400 mb-4">Get weekly updates on what's fresh and available near you.</p>
+                <p class="text-sm text-gray-400 mb-4">Get weekly updates on what's fresh.</p>
                 <div class="flex">
                     <input type="email" placeholder="Your email" class="bg-white/10 border border-white/20 rounded-l-lg px-4 py-2 text-sm outline-none text-white w-full focus:border-green-400">
-                    <button class="bg-brand px-4 py-2 rounded-r-lg text-white hover:bg-green-600 transition">✉</button>
+                    <button class="bg-[#2e6f40] px-4 py-2 rounded-r-lg text-white hover:bg-green-600 transition">✉</button>
                 </div>
             </div>
         </div>
@@ -356,12 +362,11 @@
             <div class="flex gap-4 mt-4 md:mt-0">
                 <a href="#" class="hover:text-gray-300">Privacy Policy</a>
                 <a href="#" class="hover:text-gray-300">Terms of Service</a>
-                <a href="#" class="hover:text-gray-300">Cookie Policy</a>
             </div>
         </div>
     </footer>
 
-    <!-- OVERLAY DO CARRINHO -->
+    <!-- OVERLAY DO CARRINHO (Com as 3 Vistas: Carrinho, Checkout, Sucesso) -->
     <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-[60] hidden transition-opacity backdrop-blur-sm">
         <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
             
@@ -453,162 +458,155 @@
 
         </div>
     </div>
-    <!-- SCRIPT DO CARRINHO -->
+
+    <!-- SCRIPT DO CARRINHO E PERFIL -->
     <script>
-        const cartOverlay = document.getElementById('cart-overlay');
-        const cartSidebar = document.getElementById('cart-sidebar');
-        const btnOpenCart = document.getElementById('cart-button');
-        const btnCloseCart = document.getElementById('close-cart');
-        const btnClearCart = document.getElementById('clear-cart-btn');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartTotalElement = document.getElementById('cart-total');
-
-        function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
-        function saveCart(cart) { localStorage.setItem('veggieCart', JSON.stringify(cart)); }
-
-        function updateCartUI() {
-            const cart = getCart();
-            const cartCount = document.getElementById('cart-count');
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            if (cartCount) cartCount.textContent = totalItems;
-            renderCartItems(cart);
-        }
-
-        function renderCartItems(cart) {
-            cartItemsContainer.innerHTML = ''; 
-            let totalPrice = 0;
-
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio. Adiciona produtos frescos!</p>';
-                cartTotalElement.textContent = '€0.00';
-                return;
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. ATUALIZAR A LETRA DO PERFIL NA NAVBAR
+            const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
+            if (savedProfile && savedProfile.name) {
+                const navInitial = document.getElementById('user-initial');
+                if (navInitial) {
+                    navInitial.textContent = savedProfile.name.charAt(0).toUpperCase();
+                }
             }
 
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                totalPrice += itemTotal;
-                const itemHTML = `
-                    <div class="flex justify-between items-center p-3 bg-gray-50 border border-gray-100 rounded-xl">
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
-                            <p class="text-xs text-gray-500">${item.quantity}x a €${item.price.toFixed(2)}</p>
-                        </div>
-                        <div class="font-bold text-brand">€${itemTotal.toFixed(2)}</div>
-                    </div>
-                `;
-                cartItemsContainer.innerHTML += itemHTML;
-            });
+            // 2. LÓGICA DO CARRINHO E INTERFACE
+            const cartOverlay = document.getElementById('cart-overlay');
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const btnOpenCart = document.getElementById('cart-button');
+            const btnCloseCart = document.getElementById('close-cart');
+            const btnClearCart = document.getElementById('clear-cart-btn');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
 
-            cartTotalElement.textContent = `€${totalPrice.toFixed(2)}`;
-        }
-
-        function openCart() {
-            cartOverlay.classList.remove('hidden');
-            setTimeout(() => cartSidebar.classList.remove('translate-x-full'), 10);
-        }
-
-        function closeCart() {
-            cartSidebar.classList.add('translate-x-full');
-            setTimeout(() => cartOverlay.classList.add('hidden'), 300);
-        }
-
-        btnOpenCart.addEventListener('click', openCart);
-        btnCloseCart.addEventListener('click', closeCart);
-        cartOverlay.addEventListener('click', (e) => {
-            if (e.target === cartOverlay) closeCart();
-        });
-
-        btnClearCart.addEventListener('click', () => {
-            localStorage.removeItem('veggieCart');
-            updateCartUI();
-        });
-
-        // --- NAVEGAÇÃO DO CHECKOUT ---
-        const cartView = document.getElementById('cart-view');
-        const checkoutView = document.getElementById('checkout-view');
-        const successView = document.getElementById('success-view');
-        
-        const btnCheckout = document.getElementById('checkout-btn');
-        const btnBackToCart = document.getElementById('back-to-cart');
-        const btnConfirmOrder = document.getElementById('confirm-order-btn');
-        const btnCloseSuccess = document.getElementById('close-success-btn');
-
-        // Ir para o formulário de Checkout
-        if (btnCheckout) {
-            btnCheckout.addEventListener('click', () => {
+            function getCart() { return JSON.parse(localStorage.getItem('veggieCart')) || []; }
+            
+            function updateCartUI() {
                 const cart = getCart();
+                const cartCount = document.getElementById('cart-count');
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                if (cartCount) cartCount.textContent = totalItems;
+                renderCartItems(cart);
+            }
+
+            function renderCartItems(cart) {
+                cartItemsContainer.innerHTML = ''; 
+                let totalPrice = 0;
+
                 if (cart.length === 0) {
-                    alert('O teu carrinho está vazio! Adiciona produtos primeiro.');
+                    cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm text-center mt-10">O teu carrinho está vazio.</p>';
+                    cartTotalElement.textContent = '€0.00';
                     return;
                 }
-                cartView.classList.add('hidden');
-                cartView.classList.remove('flex');
-                checkoutView.classList.remove('hidden');
-                checkoutView.classList.add('flex');
-            });
-        }
 
-        // Voltar ao Carrinho
-        if (btnBackToCart) {
-            btnBackToCart.addEventListener('click', () => {
-                checkoutView.classList.add('hidden');
-                checkoutView.classList.remove('flex');
-                cartView.classList.remove('hidden');
-                cartView.classList.add('flex');
-            });
-        }
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+                    cartItemsContainer.innerHTML += `
+                        <div class="flex justify-between items-center p-3 bg-gray-50 border border-gray-100 rounded-xl">
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                                <p class="text-xs text-gray-500">${item.quantity}x a €${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="font-bold text-[#2e6f40]">€${itemTotal.toFixed(2)}</div>
+                        </div>`;
+                });
 
-        // Confirmar a Encomenda
-        if (btnConfirmOrder) {
-            btnConfirmOrder.addEventListener('click', () => {
-                const pickupTime = document.getElementById('pickup-time').value;
-                
-                // Validação simples: exigir que escolha a data
-                if (!pickupTime) {
-                    alert('Por favor, indica o dia e a hora para a recolha.');
-                    return;
-                }
-                
-                // Se tudo estiver bem, limpa o carrinho
-                localStorage.removeItem('veggieCart');
-                updateCartUI();
-                
-                // Esconde Checkout, Mostra Sucesso
-                checkoutView.classList.add('hidden');
-                checkoutView.classList.remove('flex');
-                successView.classList.remove('hidden');
-                successView.classList.add('flex');
-            });
-        }
+                cartTotalElement.textContent = `€${totalPrice.toFixed(2)}`;
+            }
 
-        // Fechar e Resetar vistas após sucesso
-        if (btnCloseSuccess) {
-            btnCloseSuccess.addEventListener('click', () => {
-                closeCart();
-                
-                // Volta a colocar o carrinho na vista 1 após fechar a aba lateral
-                setTimeout(() => {
-                    successView.classList.add('hidden');
-                    successView.classList.remove('flex');
+            function openCart() {
+                cartOverlay.classList.remove('hidden');
+                setTimeout(() => cartSidebar.classList.remove('translate-x-full'), 10);
+            }
+
+            function closeCart() {
+                cartSidebar.classList.add('translate-x-full');
+                setTimeout(() => cartOverlay.classList.add('hidden'), 300);
+            }
+
+            if (btnOpenCart) btnOpenCart.addEventListener('click', openCart);
+            if (btnCloseCart) btnCloseCart.addEventListener('click', closeCart);
+            if (cartOverlay) cartOverlay.addEventListener('click', (e) => { if (e.target === cartOverlay) closeCart(); });
+            
+            if (btnClearCart) {
+                btnClearCart.addEventListener('click', () => {
+                    localStorage.removeItem('veggieCart');
+                    updateCartUI();
+                });
+            }
+
+            // 3. NAVEGAÇÃO DO CHECKOUT
+            const cartView = document.getElementById('cart-view');
+            const checkoutView = document.getElementById('checkout-view');
+            const successView = document.getElementById('success-view');
+            
+            const btnCheckout = document.getElementById('checkout-btn');
+            const btnBackToCart = document.getElementById('back-to-cart');
+            const btnConfirmOrder = document.getElementById('confirm-order-btn');
+            const btnCloseSuccess = document.getElementById('close-success-btn');
+
+            if (btnCheckout) {
+                btnCheckout.addEventListener('click', () => {
+                    const cart = getCart();
+                    if (cart.length === 0) {
+                        alert('O teu carrinho está vazio! Adiciona produtos primeiro.');
+                        return;
+                    }
+                    cartView.classList.add('hidden');
+                    cartView.classList.remove('flex');
+                    checkoutView.classList.remove('hidden');
+                    checkoutView.classList.add('flex');
+                });
+            }
+
+            if (btnBackToCart) {
+                btnBackToCart.addEventListener('click', () => {
+                    checkoutView.classList.add('hidden');
+                    checkoutView.classList.remove('flex');
                     cartView.classList.remove('hidden');
                     cartView.classList.add('flex');
-                    
-                    // Limpar a data preenchida
-                    document.getElementById('pickup-time').value = '';
-                }, 300);
-            });
-        }
-
-        // ATUALIZAR A LETRA DO PERFIL EM TODAS AS PÁGINAS
-        const savedProfile = JSON.parse(localStorage.getItem('veggieProfile'));
-        if (savedProfile && savedProfile.name) {
-            const navInitial = document.getElementById('user-initial');
-            if (navInitial) {
-                navInitial.textContent = savedProfile.name.charAt(0).toUpperCase();
+                });
             }
-        }
 
-        document.addEventListener('DOMContentLoaded', updateCartUI);
+            if (btnConfirmOrder) {
+                btnConfirmOrder.addEventListener('click', () => {
+                    const pickupDate = document.getElementById('pickup-date').value;
+                    const pickupTime = document.getElementById('pickup-time').value;
+                    
+                    if (!pickupDate || !pickupTime) {
+                        alert('Por favor, indica o dia e a janela de horário para a recolha.');
+                        return;
+                    }
+                    
+                    localStorage.removeItem('veggieCart');
+                    updateCartUI();
+                    
+                    checkoutView.classList.add('hidden');
+                    checkoutView.classList.remove('flex');
+                    successView.classList.remove('hidden');
+                    successView.classList.add('flex');
+                });
+            }
+
+            if (btnCloseSuccess) {
+                btnCloseSuccess.addEventListener('click', () => {
+                    closeCart();
+                    setTimeout(() => {
+                        successView.classList.add('hidden');
+                        successView.classList.remove('flex');
+                        cartView.classList.remove('hidden');
+                        cartView.classList.add('flex');
+                        
+                        document.getElementById('pickup-date').value = '';
+                        document.getElementById('pickup-time').value = '';
+                    }, 300);
+                });
+            }
+
+            updateCartUI();
+        });
     </script>
 </body>
 </html>
